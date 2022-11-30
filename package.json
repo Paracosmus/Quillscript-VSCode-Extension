@@ -1,0 +1,39 @@
+{
+    "name": "quillscript-language",
+    "icon": "icon.png",
+    "publisher": "BrunoCaxito",
+    "displayName": "Quillscript Language",
+    "description": "Syntax highlighting and support for Quillscript Language",
+    "version": "2.0.0",
+    "license": "MIT",
+    "homepage": "https://quillscript.ink/",
+
+    "author": {
+		"email": "bcaxito@gmail.com",
+		"name": "Bruno Caxito",
+		"url": "https://github.com/BrunoCaxito"
+	},
+
+    "engines": {
+        "vscode": "^1.73.1"
+    },
+
+    "categories": [
+        "Programming Languages"
+    ],
+
+    "contributes": {
+        "languages": [{
+            "id": "quillscript",
+            "aliases": [ "Quillscript", "quillscript", "QSC" ],
+            "extensions": [ ".qsc" ],
+            "configuration": "./language-configuration.json"
+        }],
+
+        "grammars": [{
+            "language": "quillscript",
+            "scopeName": "source.qsc",
+            "path": "./syntaxes/quillscript.tmLanguage.json"
+        }]
+    }
+}

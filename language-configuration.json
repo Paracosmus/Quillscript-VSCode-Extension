@@ -1,0 +1,29 @@
+{
+    // Symbols used as comments.
+    "comments": {
+        "lineComment": "//"
+    },
+
+    // Symbols used as brackets.
+    "brackets": [
+        // ~
+    ],
+
+    // Symbols that are auto closed when typing.
+    "autoClosingPairs": [
+        { "open": "(", "close": ")" },
+        { "open": "{", "close": "}" },
+        { "open": "[", "close": "]" },
+        { "open": "'", "close": "'" },
+        { "open": "\"", "close": "\"" },
+    ],
+
+    // Symbols that that can be used to surround a selection.
+    "surroundingPairs": [
+        { "open": "(", "close": ")" },
+        { "open": "{", "close": "}" },
+        { "open": "[", "close": "]" },
+        { "open": "'", "close": "'" },
+        { "open": "\"", "close": "\"" },
+    ]
+}
