@@ -5,9 +5,9 @@
 
 	"patterns": [
 		{ "include": "#dialogue"  },
+		{ "include": "#option"    },
 		{ "include": "#label"     },
 		{ "include": "#goto"      },
-		{ "include": "#option"    },
 		{ "include": "#command"   },
 		{ "include": "#directive" },
 		{ "include": "#comment"   },
@@ -110,36 +110,19 @@
 			"patterns": [
 				{
 					"name": "comment.title.qsc",
-					"match": "(SCENE|ACT|CHAPTER)[ -Z]+"
+					"match": "(SCENE|ACT|CHAPTER|SCRIPT)[ -Z]+"
 				},
 
 				{
-					"name": "comment.header.qsc",
-					"match": "(\\s*|\\t*)([0-9A-Z\\s\\.\\-\\'\\,]{12,})",
-					"captures": {
-						"1": {
-							"name": "comment.header.indentation.qsc"
-						},
-
-						"2": {
-							"name": "comment.header.main.qsc"
-						}
-					}
-				},
-
-				{
-					"name": "comment.line.qsc",
 					"match": "^\\t*(//\\ )(.*$)",
 					"captures": {
-						"1": {
-							"name": "comment.line.sign.qsc"
-						},
+						"1": { "name": "comment.sign.qsc" },
 
 						"2": {
-							"name": "comment.line.main.qsc",
+							"name": "comment.qsc",
 							"patterns": [
 								{
-									"name": "comment.line.text.topic.qsc",
+									"name": "comment.topic.qsc",
 									"match": "<>"
 								}
 							]
@@ -206,11 +189,16 @@
 				},
 
 				{
-					"name": "entity.name.namespace.label.main.qsc",
-					"match": "\\w+"
+					"name": "entity.name.namespace.label.template.qsc",
+					"match": "(\\()|(\\))|(\\,)"
 				},
 
-				{ "include": "#definition" }
+				{ "include": "#definition" },
+
+				{
+					"name": "entity.name.namespace.label.main.qsc",
+					"match": "\\w+"
+				}
 			]
 		},
 
@@ -221,14 +209,14 @@
 					"match": "\\-\\>"
 				},
 
+				{ "include": "#variable" },
+
+				{ "include": "#definition" },
+
 				{
 					"name": "keyword.control.goto.main.qsc",
 					"match": "\\w+"
-				},
-
-				{ "include": "#variable" },
-
-				{ "include": "#definition" }
+				}
 			]
 		},
 
@@ -239,11 +227,6 @@
 					"match": "\\$"
 				},
 
-				{
-					"name": "entity.name.function.command.main.qsc",
-					"match": "\\w+"
-				},
-
 				{ "include": "#richtext" },
 
 				{ "include": "#operator" },
@@ -254,7 +237,12 @@
 
 				{ "include": "#variable" },
 
-				{ "include": "#definition" }
+				{ "include": "#definition" },
+
+				{
+					"name": "entity.name.function.command.main.qsc",
+					"match": "\\w+"
+				}
 			]
 		},
 
@@ -265,11 +253,6 @@
 					"match": "\\?"
 				},
 
-				{
-					"name": "entity.name.namespace.condition.main.qsc",
-					"match": "\\w+"
-				},
-
 				{ "include": "#richtext" },
 
 				{ "include": "#operator" },
@@ -280,7 +263,12 @@
 
 				{ "include": "#variable" },
 
-				{ "include": "#definition" }
+				{ "include": "#definition" },
+
+				{
+					"name": "entity.name.namespace.condition.main.qsc",
+					"match": "\\w+"
+				}
 			]
 		},
 
@@ -300,7 +288,7 @@
 
 		"variable": {
 			"name": "variable.other.property.qsc",
-			"match": "{\\w+}"
+			"match": "{\\w+}|{@\\w+}|{&\\w+}|{:\\w+}"
 		},
 
 		"definition": {
@@ -315,7 +303,7 @@
 
 		"operator": {
 			"name": "keyword.operator.qsc",
-			"match": "==|!=|>=|<=|(?<!-)>|<|=|\\+|-(?!>)|\\*|\/"
+			"match": "=|and|AND|or|OR|==|!=|>=|<=|(?<!-)>|<|\\+|-(?!>)|\\*|\/|\\%|\\^|\\&|\\(|\\)"
 		},
 
 		"keyword": {
