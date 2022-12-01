@@ -189,15 +189,24 @@
 				},
 
 				{
-					"name": "entity.name.namespace.label.template.qsc",
-					"match": "(\\()|(\\))|(\\,)"
-				},
+					"match": "(\\w+)(.*$)",
 
-				{ "include": "#definition" },
+					"captures": {
+						"1": { "name": "entity.name.namespace.label.main.qsc" },
 
-				{
-					"name": "entity.name.namespace.label.main.qsc",
-					"match": "\\w+"
+						"2": {
+							"name": "entity.name.namespace.label.param.qsc",
+
+							"patterns": [
+								{
+									"name": "entity.name.namespace.label.template.qsc",
+									"match": "(\\()|(\\))|(\\,)"
+								},
+
+								{ "include": "#definition" }
+							]
+						}
+					}
 				}
 			]
 		},
@@ -209,13 +218,27 @@
 					"match": "\\-\\>"
 				},
 
-				{ "include": "#variable" },
-
-				{ "include": "#definition" },
-
 				{
-					"name": "keyword.control.goto.main.qsc",
-					"match": "\\w+"
+					"match": "(\\w+)(.*$)",
+
+					"captures": {
+						"1": { "name": "keyword.control.goto.main.qsc" },
+
+						"2": {
+							"name": "entity.name.namespace.label.param.qsc",
+
+							"patterns": [
+								{
+									"name": "entity.name.namespace.label.template.qsc",
+									"match": "(\\()|(\\))|(\\,)"
+								},
+
+								{ "include": "#variable" },
+
+								{ "include": "#definition" }
+							]
+						}
+					}
 				}
 			]
 		},
@@ -227,21 +250,30 @@
 					"match": "\\$"
 				},
 
-				{ "include": "#richtext" },
-
-				{ "include": "#operator" },
-
-				{ "include": "#number" },
-
-				{ "include": "#keyword" },
-
-				{ "include": "#variable" },
-
-				{ "include": "#definition" },
-
 				{
-					"name": "entity.name.function.command.main.qsc",
-					"match": "\\w+"
+					"match": "(\\w+)(.*$)",
+
+					"captures": {
+						"1": { "name": "entity.name.function.command.main.qsc" },
+
+						"2": {
+							"name": "entity.name.function.command.param.qsc",
+
+							"patterns": [
+								{ "include": "#richtext" },
+
+								{ "include": "#operator" },
+
+								{ "include": "#number" },
+
+								{ "include": "#keyword" },
+
+								{ "include": "#variable" },
+
+								{ "include": "#definition" }
+							]
+						}
+					}
 				}
 			]
 		},
@@ -308,7 +340,7 @@
 
 		"keyword": {
 			"name": "constant.language.qsc",
-			"match": "true|false|on|off|null"
+			"match": "\\btrue\\b|\\bfalse\\b|\\bon\\b|\\boff\\b|\\bnull\\b"
 		},
 
 		"number": {
