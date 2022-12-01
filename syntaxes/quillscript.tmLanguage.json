@@ -189,7 +189,7 @@
 				},
 
 				{
-					"match": "(\\w+)(.*$)",
+					"match": "([^\\s]+)(.*)",
 
 					"captures": {
 						"1": { "name": "entity.name.namespace.label.main.qsc" },
@@ -219,7 +219,7 @@
 				},
 
 				{
-					"match": "(\\w+)(.*$)",
+					"match": "([^\\s]+)(.*)",
 
 					"captures": {
 						"1": { "name": "keyword.control.goto.main.qsc" },
