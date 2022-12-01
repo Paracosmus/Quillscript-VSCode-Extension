@@ -305,7 +305,7 @@
 				{ "include": "#definition" },
 
 				{
-					"name": "entity.name.namespace.condition.main.qsc",
+					"name": "string.qsc",
 					"match": "\\w+"
 				}
 			]
