@@ -331,7 +331,7 @@
 		},
 
 		"definition": {
-			"name": "entity.name.other.preprocessor.macro.directive.main.qsc",
+			"name": "entity.name.other.preprocessor.macro.directive.param.qsc",
 			"match": "\\[\\[\\w+\\]\\]"
 		},
 
@@ -351,7 +351,7 @@
 		},
 
 		"number": {
-			"name": "constant.numeric.qsc",
+			"name": "constant.number.qsc",
 			"match": "(?<!\\w)([\\d]+)(?!\\w)"
 		}
 	}
