@@ -251,13 +251,20 @@
 				},
 
 				{
-					"match": "(\\w+)(.*$)",
+					"name": "entity.name.function.command.sign.qsc",
+					"match": "\\&|\\^|\\%"
+				},
+
+				{
+					"match": "([^\\s]+)(.*)",
 
 					"captures": {
-						"1": { "name": "entity.name.function.command.main.qsc" },
+						"1": {
+							"name": "entity.name.function.command.main.qsc"
+						},
 
 						"2": {
-							"name": "entity.name.function.command.param.qsc",
+							"name": "string.qsc",
 
 							"patterns": [
 								{ "include": "#richtext" },
@@ -335,7 +342,7 @@
 
 		"operator": {
 			"name": "keyword.operator.qsc",
-			"match": "=|and|AND|or|OR|==|!=|>=|<=|(?<!-)>|<|\\+|-(?!>)|\\*|\/|\\%|\\^|\\&|\\(|\\)"
+			"match": "=|and|AND|or|OR|==|!=|>=|<=|(?<!-)>|<|\\+|-(?!>)|\\*|\/|\\%|\\^|\\(|\\)"
 		},
 
 		"keyword": {
