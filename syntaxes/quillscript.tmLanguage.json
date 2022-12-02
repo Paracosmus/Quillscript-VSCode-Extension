@@ -288,7 +288,7 @@
 		"condition": {
 			"patterns": [
 				{
-					"name": "entity.name.namespace.condition.sign.qsc",
+					"name": "keyword.operator.condition.qsc",
 					"match": "\\?"
 				},
 
