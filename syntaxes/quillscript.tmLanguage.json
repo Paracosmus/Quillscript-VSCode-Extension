@@ -177,7 +177,9 @@
 
 				"4": { "patterns": [ { "include": "#goto_instruction" } ] },
 
-				"5": { "patterns": [ { "include": "#tag" } ] }
+				"5": { "patterns": [ { "include": "#tag" } ] },
+
+				"6": { "patterns": [ { "include": "#command_instruction" } ] }
 			}
 		},
 
