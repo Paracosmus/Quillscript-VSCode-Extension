@@ -9,6 +9,7 @@
 		{ "include": "#label"     },
 		{ "include": "#goto"      },
 		{ "include": "#command"   },
+		{ "include": "#condition" },
 		{ "include": "#directive" },
 		{ "include": "#comment"   },
 		{ "include": "#text"      }
@@ -94,6 +95,52 @@
 			}
 		},
 
+		"condition": {
+			"match": "^\\t*(\\?\\ |\\?\\ if|\\?\\ elseif|\\?\\ else|\\?\\ endif|if|elseif|else|endif)(.*?)(?=\\||$)(.*$)",
+
+			"captures": {
+				"1": { "name": "keyword.operator.condition.qsc" },
+
+				"2": { "patterns": [ { "include": "#condition_instruction" } ] },
+
+				"3": {
+					"patterns": [
+						{
+							"match": "(\\|)(.*?)(?=(\\||$))",
+
+							"captures": {
+								"1": { "name": "keyword.operator.concat.qsc" },
+
+								"2": {
+									"patterns": [
+										{
+											"match": "(\\@.[^\\s].*)|(\\?.[^\\s].*)|(\\$.[^\\s].*)|(->.[^\\s].*)|(\\#.[^\\s].*)|(\\w+.*)",
+
+											"captures": {
+												"1": { "patterns": [ { "include": "#label_instruction" } ] },
+
+												"2": { "patterns": [ { "include": "#condition_instruction" } ] },
+
+												"3": { "patterns": [ { "include": "#command_instruction" } ] },
+
+												"4": { "patterns": [ { "include": "#goto_instruction" } ] },
+
+												"5": { "patterns": [ { "include": "#tag" } ] },
+
+												"6": { "patterns": [ { "include": "#condition_instruction" } ] }
+											}
+										},
+
+										{ "include": "#definition" }
+									]
+								}
+							}
+						}
+					]
+				}
+			}
+		},
+
 		"directive": {
 			"match": "^\\t*(\\~\\ )(\\w+)(.*$)",
 
@@ -171,7 +218,7 @@
 			"captures": {
 				"1": { "patterns": [ { "include": "#label_instruction" } ] },
 
-				"2": { "patterns": [ { "include": "#condition" } ] },
+				"2": { "patterns": [ { "include": "#condition_instruction" } ] },
 
 				"3": { "patterns": [ { "include": "#command_instruction" } ] },
 
@@ -289,7 +336,7 @@
 			]
 		},
 
-		"condition": {
+		"condition_instruction": {
 			"patterns": [
 				{
 					"name": "keyword.operator.condition.qsc",
