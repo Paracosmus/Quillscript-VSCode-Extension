@@ -96,14 +96,18 @@
 		},
 
 		"condition": {
-			"match": "^\\t*(\\?\\ |\\?\\ if|\\?\\ elseif|\\?\\ else|\\?\\ endif|if|elseif|else|endif)(.*?)(?=\\||$)(.*$)",
+			"match": "^\\t*([\\?\\ ]?)(if|elseif|else|endif)([\\:]?)(.*?)(?=\\||$)(.*$)",
 
 			"captures": {
 				"1": { "name": "keyword.operator.condition.qsc" },
 
-				"2": { "patterns": [ { "include": "#condition_instruction" } ] },
+				"2": { "name": "keyword.operator.condition.qsc" },
 
-				"3": {
+				"3": { "name": "keyword.operator.qsc" },
+
+				"4": { "patterns": [ { "include": "#condition_instruction" } ] },
+
+				"5": {
 					"patterns": [
 						{
 							"match": "(\\|)(.*?)(?=(\\||$))",
