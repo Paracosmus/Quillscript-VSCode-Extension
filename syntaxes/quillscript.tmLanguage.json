@@ -7,7 +7,7 @@
 		{ "include": "#dialogue"  },
 		{ "include": "#option"    },
 		{ "include": "#label"     },
-		{ "include": "#goto"      },
+		{ "include": "#router"      },
 		{ "include": "#command"   },
 		{ "include": "#condition" },
 		{ "include": "#directive" },
@@ -71,13 +71,13 @@
 			}
 		},
 
-		"goto": {
+		"router": {
 			"match": "^\\t*(\\->\\ )(.*?)(?=\\||$)(.*$)",
 
 			"captures": {
-				"1": { "name": "keyword.control.goto.sign.qsc" },
+				"1": { "name": "keyword.control.router.sign.qsc" },
 
-				"2": { "patterns": [ { "include": "#goto_instruction" } ] },
+				"2": { "patterns": [ { "include": "#router_instruction" } ] },
 
 				"3": { "patterns": [ { "include": "#metadata" } ] }
 			}
@@ -127,7 +127,7 @@
 
 												"3": { "patterns": [ { "include": "#command_instruction" } ] },
 
-												"4": { "patterns": [ { "include": "#goto_instruction" } ] },
+												"4": { "patterns": [ { "include": "#router_instruction" } ] },
 
 												"5": { "patterns": [ { "include": "#tag" } ] },
 
@@ -226,7 +226,7 @@
 
 				"3": { "patterns": [ { "include": "#command_instruction" } ] },
 
-				"4": { "patterns": [ { "include": "#goto_instruction" } ] },
+				"4": { "patterns": [ { "include": "#router_instruction" } ] },
 
 				"5": { "patterns": [ { "include": "#tag" } ] },
 
@@ -264,10 +264,10 @@
 			]
 		},
 
-		"goto_instruction": {
+		"router_instruction": {
 			"patterns": [
 				{
-					"name": "keyword.control.goto.sign.qsc",
+					"name": "keyword.control.router.sign.qsc",
 					"match": "\\-\\>"
 				},
 
@@ -275,7 +275,7 @@
 					"match": "([^\\s]+)(.*)",
 
 					"captures": {
-						"1": { "name": "keyword.control.goto.main.qsc" },
+						"1": { "name": "keyword.control.router.main.qsc" },
 
 						"2": {
 							"name": "entity.name.namespace.label.param.qsc",
@@ -284,6 +284,11 @@
 								{
 									"name": "entity.name.namespace.label.template.qsc",
 									"match": "(\\()|(\\))|(\\,)"
+								},
+
+								{
+									"name": "keyword.control.router.sign.qsc",
+									"match": "\\<\\-"
 								},
 
 								{ "include": "#variable" },
