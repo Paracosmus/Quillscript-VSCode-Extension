@@ -72,7 +72,7 @@
 		},
 
 		"router": {
-			"match": "^\\t*(\\->\\ )(.*?)(?=\\||$)(.*$)",
+			"match": "^\\t*([\\<]?\\-\\>\\ )(.*?)(?=\\||$)(.*$)",
 
 			"captures": {
 				"1": { "name": "keyword.control.router.sign.qsc" },
@@ -215,7 +215,7 @@
 		},
 
 		"instruction" : {
-			"match": "(\\@.[^\\s].*)|(\\?.[^\\s].*)|(\\$.[^\\s].*)|(->.[^\\s].*)|(\\#.[^\\s].*)|(\\w+.*)",
+			"match": "(\\@.[^\\s].*)|(\\?.[^\\s].*)|(\\$.[^\\s].*)|([\\<]?\\-\\>\\ .[^\\s].*)|(\\#.[^\\s].*)|(\\w+.*)",
 
 			"captures": {
 				"1": { "patterns": [ { "include": "#label_instruction" } ] },
@@ -266,7 +266,7 @@
 			"patterns": [
 				{
 					"name": "keyword.control.router.sign.qsc",
-					"match": "\\-\\>"
+					"match": "[\\<]?\\-\\>\\ "
 				},
 
 				{
@@ -282,11 +282,6 @@
 								{
 									"name": "entity.name.namespace.label.template.qsc",
 									"match": "(\\()|(\\))|(\\,)"
-								},
-
-								{
-									"name": "keyword.control.router.sign.qsc",
-									"match": "\\<\\-"
 								},
 
 								{ "include": "#variable" },
