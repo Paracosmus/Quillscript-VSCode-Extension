@@ -397,7 +397,7 @@
 
 		"operator": {
 			"name": "keyword.operator.qsc",
-			"match": "=|and|AND|or|OR|==|!=|>=|<=|(?<!-)>|<|\\+|-(?!>)|\\*|\/|\\%|\\^"
+			"match": "=|\\band\\b|\\bAND\\b|\\bor\\b|\\bOR\\b|==|!=|>=|<=|(?<!-)>|<|\\+|-(?!>)|\\*|\/|\\%|\\^"
 		},
 
 		"parentheses": {
@@ -407,7 +407,7 @@
 
 		"keyword": {
 			"name": "constant.language.qsc",
-			"match": "\\btrue\\b|\\bfalse\\b|\\bon\\b|\\boff\\b|\\bnull\\b"
+			"match": "\\btrue\\b|\\bfalse\\b|\\bon\\b|\\boff\\b|\\bnull\\b|\\bnullptr\\b"
 		},
 
 		"number": {
