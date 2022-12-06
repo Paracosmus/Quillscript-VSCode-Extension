@@ -20,7 +20,7 @@
 			"match": "^[\\t|\\ ]*(\\-\\ )(.*?)(?=\\||$)(.*$)",
 
 			"captures": {
-				"1": { "name": "entity.name.type.class.dialogue.sign.qsc" },
+				"1": { "name": "entity.name.type.class.dialogue.symbol.qsc" },
 
 				"2": {
 					"name": "entity.name.type.class.dialogue.main.qsc",
@@ -42,7 +42,7 @@
 			"match": "^[\\t|\\ ]*(\\*\\ )(.*?)(?=\\||$)(.*$)",
 
 			"captures": {
-				"1": { "name": "entity.name.type.enum.option.sign.qsc" },
+				"1": { "name": "entity.name.type.enum.option.symbol.qsc" },
 
 				"2": {
 					"name": "entity.name.type.enum.option.main.qsc",
@@ -63,7 +63,7 @@
 			"match": "^[\\t|\\ ]*(@\\ |<@>\\ )(.*?)(?=\\ \\||$)(.*$)",
 
 			"captures": {
-				"1": { "name": "entity.name.namespace.label.sign.qsc" },
+				"1": { "name": "entity.name.namespace.label.symbol.qsc" },
 
 				"2": { "patterns": [ { "include": "#label_instruction" } ] },
 
@@ -75,7 +75,7 @@
 			"match": "^[\\t|\\ ]*([\\<]?\\-\\>\\ )(.*?)(?=\\||$)(.*$)",
 
 			"captures": {
-				"1": { "name": "keyword.control.router.sign.qsc" },
+				"1": { "name": "keyword.control.router.symbol.qsc" },
 
 				"2": { "patterns": [ { "include": "#router_instruction" } ] },
 
@@ -87,7 +87,7 @@
 			"match": "^[\\t|\\ ]*(\\$\\ )(.*?)(?=\\||$)(.*$)",
 
 			"captures": {
-				"1": { "name": "entity.name.function.command.sign.qsc" },
+				"1": { "name": "entity.name.function.command.symbol.qsc" },
 
 				"2": { "patterns": [ { "include": "#command_instruction" } ] },
 
@@ -147,7 +147,7 @@
 			"match": "^[\\t|\\ ]*(\\~\\ )(\\w+)(.*$)",
 
 			"captures": {
-				"1": { "name": "entity.name.other.preprocessor.macro.directive.sign.qsc" },
+				"1": { "name": "entity.name.other.preprocessor.macro.directive.symbol.qsc" },
 
 				"2": { "name": "entity.name.other.preprocessor.macro.directive.main.qsc" },
 
@@ -165,7 +165,7 @@
 				{
 					"match": "^[\\t|\\ ]*(//\\ )(.*$)",
 					"captures": {
-						"1": { "name": "comment.sign.qsc" },
+						"1": { "name": "comment.symbol.qsc" },
 
 						"2": {
 							"name": "comment.qsc",
@@ -240,7 +240,7 @@
 		"label_instruction": {
 			"patterns": [
 				{
-					"name": "entity.name.namespace.label.sign.qsc",
+					"name": "entity.name.namespace.label.symbol.qsc",
 					"match": "@|[<@>]"
 				},
 
@@ -270,7 +270,7 @@
 		"router_instruction": {
 			"patterns": [
 				{
-					"name": "keyword.control.router.sign.qsc",
+					"name": "keyword.control.router.symbol.qsc",
 					"match": "[\\<]?\\-\\>\\ "
 				},
 
@@ -302,12 +302,12 @@
 		"command_instruction": {
 			"patterns": [
 				{
-					"name": "entity.name.function.command.sign.qsc",
+					"name": "entity.name.function.command.symbol.qsc",
 					"match": "\\$"
 				},
 
 				{
-					"name": "entity.name.function.command.sign.qsc",
+					"name": "entity.name.function.command.symbol.qsc",
 					"match": "\\&|\\^|\\%"
 				},
 
