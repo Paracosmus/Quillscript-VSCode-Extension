@@ -192,7 +192,12 @@
 
 						{ "include": "#variable" },
 
-						{ "include": "#definition" }
+						{ "include": "#definition" },
+
+						{
+							"name": "keyword.operator.condition.qsc",
+							"match": "\\-\\-\\-"
+						}
 					]
 				}
 			}
