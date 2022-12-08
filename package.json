@@ -18,6 +18,15 @@
         "vscode": "^1.73.1"
     },
 
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/BrunoCaxito/Quillscript-VSC-Extension"
+	},
+
+	"galleryBanner": {
+		"color": "#e1bee7"
+	},
+
     "categories": [
         "Programming Languages"
     ],
