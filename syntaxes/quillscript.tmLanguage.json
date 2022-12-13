@@ -402,7 +402,7 @@
 
 		"operator": {
 			"name": "keyword.operator.qsc",
-			"match": "=|\\band\\b|\\bAND\\b|\\bor\\b|\\bOR\\b|==|!=|>=|<=|(?<!-)>|<|\\+|-(?!>)|\\*|\/|\\%|\\^"
+			"match": "=|\\~|\\band\\b|\\bAND\\b|\\bor\\b|\\bOR\\b|==|!=|>=|<=|(?<!-)>|<|\\+|-(?!>)|\\*|\/|\\%|\\^"
 		},
 
 		"parentheses": {
