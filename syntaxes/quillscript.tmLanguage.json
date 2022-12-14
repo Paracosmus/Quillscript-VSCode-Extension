@@ -7,7 +7,7 @@
 		{ "include": "#dialogue"  },
 		{ "include": "#option"    },
 		{ "include": "#label"     },
-		{ "include": "#router"      },
+		{ "include": "#router"    },
 		{ "include": "#command"   },
 		{ "include": "#condition" },
 		{ "include": "#directive" },
