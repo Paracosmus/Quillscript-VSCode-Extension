@@ -2,22 +2,30 @@
 
 ## Installation
 
+* Install generator:
+
 ```sh
 npm install -g yo generator-code
+```
+
+* Execute terminal as administrator (Windows Only):
+
+```sh
+Set-ExecutionPolicy unrestricted
+```
+
+* Install vsce:
+
+```sh
+npm install -g vsce
 ```
 
 ---
 
 ## Publish
 
-Instructions of how to publish this extension.
-
-* Execute Visual Studio Code as administrator:
+* Generate vsix file:
 
 ```sh
-Set-ExecutionPolicy unrestricted
-npm install -g vsce
 vsce package
 ```
-
-Go to the marketplace page and drag and drop the .vsix file.

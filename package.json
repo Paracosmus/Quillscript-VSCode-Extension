@@ -34,7 +34,7 @@
     "contributes": {
         "languages": [{
             "id": "quillscript",
-            "aliases": [ "Quillscript", "quillscript", "QSC" ],
+            "aliases": [ "Quillscript", "quillscript", "QSC", "qsc" ],
             "extensions": [ ".qsc" ],
             "configuration": "./language-configuration.json"
         }],

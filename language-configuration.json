@@ -6,24 +6,39 @@
 
     // Symbols used as brackets.
     "brackets": [
-        // ~
+        [ "if:", "endif" ],
+    ],
+
+    "colorizedBracketPairs": [
+        [ "{", "}" ],
     ],
 
     // Symbols that are auto closed when typing.
     "autoClosingPairs": [
         { "open": "(", "close": ")" },
-        { "open": "{", "close": "}" },
         { "open": "[", "close": "]" },
+        { "open": "{", "close": "}" },
         { "open": "'", "close": "'" },
         { "open": "\"", "close": "\"" },
+        { "open": "<", "close": "></>" },
+
+        { "open": "if:", "close": "endif" },
     ],
 
     // Symbols that that can be used to surround a selection.
     "surroundingPairs": [
         { "open": "(", "close": ")" },
-        { "open": "{", "close": "}" },
         { "open": "[", "close": "]" },
+        { "open": "{", "close": "}" },
         { "open": "'", "close": "'" },
         { "open": "\"", "close": "\"" },
-    ]
+        { "open": "<", "close": "</>" },
+    ],
+
+    "folding": {
+        "markers": {
+            "start": "{",
+            "end": "}"
+        }
+    },
 }

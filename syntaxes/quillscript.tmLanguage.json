@@ -4,136 +4,286 @@
 	"scopeName": "source.qsc",
 
 	"patterns": [
-		{ "include": "#dialogue"  },
-		{ "include": "#option"    },
-		{ "include": "#label"     },
-		{ "include": "#router"    },
-		{ "include": "#command"   },
-		{ "include": "#condition" },
-		{ "include": "#directive" },
-		{ "include": "#comment"   },
-		{ "include": "#text"      }
+		{ "include": "#comment"       },
+		{ "include": "#router"        },
+		{ "include": "#dialogue"      },
+		{ "include": "#option"        },
+		{ "include": "#label"         },
+		{ "include": "#command"       },
+		{ "include": "#condition"     },
+		{ "include": "#directive"     },
+		{ "include": "#text"          },
+		{ "include": "#concatenation" },
+		{ "include": "#instruction"   }
 	],
 
 	"repository": {
 		"dialogue": {
-			"match": "^[\\t|\\ ]*(\\-\\ )(.*?)(?=\\||$)(.*$)",
+			"match": "(\\-)(.*?(?=(\\||\\/\\/|\\n)))",
 
 			"captures": {
 				"1": { "name": "entity.name.type.class.dialogue.symbol.qsc" },
-
-				"2": {
-					"name": "entity.name.type.class.dialogue.main.qsc",
-
-					"patterns": [
-						{ "include": "#variable" },
-
-						{ "include": "#definition" },
-
-						{ "include": "#richtext" }
-					]
-				},
-
-				"3": { "patterns": [ { "include": "#metadata" } ] }
+				"2": { "name": "entity.name.type.class.dialogue.main.qsc" }
 			}
 		},
 
 		"option": {
-			"match": "^[\\t|\\ ]*(\\*\\ )(.*?)(?=\\||$)(.*$)",
+			"match": "(\\*)(.*?(?=(\\||\\/\\/|\\n)))",
 
 			"captures": {
 				"1": { "name": "entity.name.type.enum.option.symbol.qsc" },
-
-				"2": {
-					"name": "entity.name.type.enum.option.main.qsc",
-					"patterns": [
-						{ "include": "#variable" },
-
-						{ "include": "#definition" },
-
-						{ "include": "#richtext" }
-					]
-				},
-
-				"3": { "patterns": [ { "include": "#metadata" } ] }
+				"2": { "name": "entity.name.type.enum.option.main.qsc" }
 			}
 		},
 
 		"label": {
-			"match": "^[\\t|\\ ]*(@\\ |<@>\\ )(.*?)(?=\\ \\||$)(.*$)",
-
-			"captures": {
-				"1": { "name": "entity.name.namespace.label.symbol.qsc" },
-
-				"2": { "patterns": [ { "include": "#label_instruction" } ] },
-
-				"3": { "patterns": [ { "include": "#metadata" } ] }
-			}
+			"match": "(@|<@>)(.*?(?=(\\||\\/\\/|\\n)))",
+			"captures": { "0": { "patterns": [ { "include": "#label_instruction" } ] } }
 		},
 
 		"router": {
-			"match": "^[\\t|\\ ]*([\\<]?\\-\\>\\ )(.*?)(?=\\||$)(.*$)",
-
-			"captures": {
-				"1": { "name": "keyword.control.router.symbol.qsc" },
-
-				"2": { "patterns": [ { "include": "#router_instruction" } ] },
-
-				"3": { "patterns": [ { "include": "#metadata" } ] }
-			}
+			"match": "(\\->|<\\->)(.*?(?=(\\||\\/\\/|\\n)))",
+			"captures": { "0": { "patterns": [ { "include": "#router_instruction" } ] } }
 		},
 
 		"command": {
-			"match": "^[\\t|\\ ]*(\\$\\ )(.*?)(?=\\||$)(.*$)",
+			"match": "(\\$)(.*?(?=(\\||\\/\\/|\\n)))",
 
 			"captures": {
 				"1": { "name": "entity.name.function.command.symbol.qsc" },
-
-				"2": { "patterns": [ { "include": "#command_instruction" } ] },
-
-				"3": { "patterns": [ { "include": "#metadata" } ] }
+				"2": { "patterns": [ { "include": "#command_instruction" } ] }
 			}
 		},
 
 		"condition": {
-			"match": "^[\\t|\\ ]*(\\?\\ if|\\?\\ elseif|\\?\\ else|\\?\\ endif|if|elseif|else|endif)([\\:]?)(.*?)(?=\\||$)(.*$)",
+			"match": "(\\??)((\\s+)?)(if:|elseif|else:|endif)(.*?(?=(\\||\\/\\/|\\n)))",
 
 			"captures": {
 				"1": { "name": "keyword.operator.condition.qsc" },
 
-				"2": { "name": "keyword.operator.qsc" },
-
-				"3": { "patterns": [ { "include": "#condition_instruction" } ] },
-
 				"4": {
+					"name": "keyword.operator.condition.qsc",
+
 					"patterns": [
 						{
-							"match": "(\\|)(.*?)(?=(\\||$))",
+							"name": "keyword.operator.qsc",
+							"match": ":"
+						}
+					]
+				},
+
+				"5": { "patterns": [ { "include": "#condition_instruction" } ] }
+			}
+		},
+
+		"directive": {
+			"match": "(~)(.*?(?=(\\||\\/\\/|\\n)))",
+
+			"captures": {
+				"1": { "name": "entity.name.other.preprocessor.macro.directive.symbol.qsc" },
+				"2": { "name": "entity.name.other.preprocessor.macro.directive.main.qsc" }
+			}
+		},
+
+		"comment": {
+			"patterns": [
+				{
+					"name": "comment.title.qsc",
+					"match": "\\b(SCENE|ACT|CHAPTER|SCRIPT|TITLE|HEADER|BOOK|NAME|PART|SECTION|FILE|BRANCH)\\b[ -Z]+"
+				},
+
+				{
+					"comment": "Capture brackets for editor colorization",
+					"match": "((\\s+)?)({|})"
+				},
+
+				{
+					"name": "comment.qsc",
+					"match": "(\\/\\/)(.*)"
+				}
+			]
+		},
+
+		"text": {
+			"name": "string.qsc",
+			"match": "(^.*?)(?=(\\/\\/)|(\\n))",
+
+			"captures": {
+				"1": {
+					"patterns": [
+						{ "include": "#definition" },
+						{ "include": "#variable" },
+						{ "include": "#richtext" }
+					]
+				}
+			}
+		},
+
+		"arguments": {
+			"match": "(\\()(.*)(\\))",
+
+			"captures": {
+				"1": { "name": "comment.qsc" },
+
+				"2": {
+					"patterns": [
+						{
+							"match": "\\,",
+							"name": "comment.qsc"
+						},
+
+						{
+							"match": ".",
+							"name": "keyword.control.router.symbol.qsc"
+						}
+					]
+				},
+
+				"3": { "name": "comment.qsc" }
+			}
+		},
+
+		"instruction": {
+			"match": "(.*?)(?=(\\||\\/\\/|\\n))",
+
+			"captures": {
+				"1": {
+					"patterns": [
+						{ "include": "#label_instruction" },
+						{ "include": "#router_instruction" },
+
+						{
+							"match": "(\\?)(.*)",
 
 							"captures": {
-								"1": { "name": "keyword.operator.concat.qsc" },
+								"1": { "name": "keyword.operator.condition.qsc" },
+								"2": { "patterns": [ { "include": "#condition_instruction" } ] }
+							}
+						},
 
-								"2": {
+						{
+							"match": "[\\s?](?!(\\->|<\\->|@|<@>|\\?))(\\$?)(.*)",
+
+							"captures": {
+								"2": { "name": "entity.name.function.command.symbol.qsc" },
+								"3": { "patterns": [ { "include": "#command_instruction" } ] }
+							}
+						}
+					]
+				}
+			}
+		},
+
+		"label_instruction": {
+			"match": "(@|<@>)(.*)",
+
+			"captures": {
+				"1": { "name": "entity.name.namespace.label.symbol.qsc" },
+
+				"2": {
+					"name": "entity.name.namespace.label.main.qsc",
+					"patterns": [ { "include": "#arguments" } ]
+				}
+			}
+		},
+
+		"router_instruction": {
+			"match": "(\\->|<\\->)(.*)",
+
+			"captures": {
+				"1": { "name": "keyword.control.router.symbol.qsc" },
+
+				"2": {
+					"name": "keyword.control.router.main.qsc",
+					"patterns": [ { "include": "#arguments" } ]
+				}
+			}
+		},
+
+		"command_instruction": {
+			"match": "(.*\\=.*)|(.*)",
+
+			"captures": {
+				"1": {
+					"patterns": [
+						{
+							"match": "(.*)(\\=)(.*)",
+
+							"captures": {
+								"1": {
 									"patterns": [
 										{
-											"match": "([\\@|<@>].[^\\s].*)|(\\?.[^\\s].*)|(\\$.[^\\s].*)|(->.[^\\s].*)|(\\#.[^\\s].*)|(\\w+.*)",
+											"name": "keyword.operator.qsc",
+											"match": ":|\\.|\\+|\\-|\\*|\\/|\\%|\\^"
+										},
+										{
+											"name": "entity.name.function.command.main.qsc",
+											"match": "\\w+"
+										}
+									]
+								},
+
+								"2": { "name": "keyword.operator.qsc" },
+
+								"3": {
+									"name": "string.qsc",
+
+									"patterns": [
+										{ "include": "#variable" },
+										{ "include": "#definition" },
+										{ "include": "#richtext" },
+										{ "include": "#operator" },
+										{ "include": "#parentheses" },
+										{ "include": "#number" },
+										{ "include": "#keyword" }
+									]
+								}
+							}
+						}
+					]
+				},
+
+				"2": {
+					"patterns": [
+						{
+							"match": "[\\s]?([\\&\\^\\%]?)(.*)",
+
+							"captures": {
+								"1": { "name": "entity.name.function.command.symbol.qsc" },
+
+								"2": {
+									"name": "entity.name.function.command.main.qsc",
+
+									"patterns": [
+										{
+											"match": "(.*?)\\s(.*)",
 
 											"captures": {
-												"1": { "patterns": [ { "include": "#label_instruction" } ] },
+												"1": {
+													"patterns": [
+														{
+															"name": "keyword.operator.qsc",
+															"match": "\\."
+														},
 
-												"2": { "patterns": [ { "include": "#condition_instruction" } ] },
+														{ "include": "#variable" },
+														{ "include": "#definition" }
+													]
+												},
 
-												"3": { "patterns": [ { "include": "#command_instruction" } ] },
+												"2": {
+													"name": "string.qsc",
 
-												"4": { "patterns": [ { "include": "#router_instruction" } ] },
-
-												"5": { "patterns": [ { "include": "#tag" } ] },
-
-												"6": { "patterns": [ { "include": "#condition_instruction" } ] }
+													"patterns": [
+														{ "include": "#variable" },
+														{ "include": "#definition" },
+														{ "include": "#richtext" },
+														{ "include": "#number" },
+														{ "include": "#keyword" }
+													]
+												}
 											}
-										},
-
-										{ "include": "#definition" }
+										}
 									]
 								}
 							}
@@ -143,256 +293,39 @@
 			}
 		},
 
-		"directive": {
-			"match": "^[\\t|\\ ]*(\\~\\ )(\\w+)(.*$)",
-
-			"captures": {
-				"1": { "name": "entity.name.other.preprocessor.macro.directive.symbol.qsc" },
-
-				"2": { "name": "entity.name.other.preprocessor.macro.directive.main.qsc" },
-
-				"3": { "name": "entity.name.other.preprocessor.macro.directive.param.qsc" }
-			}
-		},
-
-		"comment": {
-			"patterns": [
-				{
-					"name": "comment.title.qsc",
-					"match": "(SCENE|ACT|CHAPTER|SCRIPT)[ -Z]+"
-				},
-
-				{
-					"match": "^[\\t|\\ ]*(//\\ )(.*$)",
-					"captures": {
-						"1": { "name": "comment.symbol.qsc" },
-
-						"2": {
-							"name": "comment.qsc",
-							"patterns": [
-								{
-									"name": "comment.topic.qsc",
-									"match": "<>"
-								}
-							]
-						}
-					}
-				}
-			]
-		},
-
-		"text": {
-			"name": "string.qsc",
-			"match": "^.*",
+		"condition_instruction": {
+			"match": ".*",
 
 			"captures": {
 				"0": {
-					"patterns": [
-						{ "include": "#richtext" },
-
-						{ "include": "#variable" },
-
-						{ "include": "#definition" },
-
-						{
-							"name": "keyword.operator.condition.qsc",
-							"match": "\\-\\-\\-"
-						}
-					]
-				}
-			}
-		},
-
-		"metadata": {
-			"match": "(\\|)(.*?)(?=(\\||$))",
-
-			"captures": {
-				"1": { "name": "keyword.operator.concat.qsc" },
-
-				"2": {
-					"patterns": [
-						{ "include": "#instruction" },
-
-						{ "include": "#definition" }
-					]
-				}
-			}
-		},
-
-		"instruction" : {
-			"match": "([\\@|<@>].[^\\s].*)|(\\?.[^\\s].*)|([\\$[\\&|\\^|\\%]].[^\\s].*)|([\\<]?\\-\\>\\ .[^\\s].*)|(\\#.[^\\s].*)|(\\w+.*)",
-
-			"captures": {
-				"1": { "patterns": [ { "include": "#label_instruction" } ] },
-
-				"2": { "patterns": [ { "include": "#condition_instruction" } ] },
-
-				"3": { "patterns": [ { "include": "#command_instruction" } ] },
-
-				"4": { "patterns": [ { "include": "#router_instruction" } ] },
-
-				"5": { "patterns": [ { "include": "#tag" } ] },
-
-				"6": { "patterns": [ { "include": "#command_instruction" } ] }
-			}
-		},
-
-		"label_instruction": {
-			"patterns": [
-				{
-					"name": "entity.name.namespace.label.symbol.qsc",
-					"match": "@|[<@>]"
-				},
-
-				{
-					"match": "([^\\s]+)(.*)",
-
-					"captures": {
-						"1": { "name": "entity.name.namespace.label.main.qsc" },
-
-						"2": {
-							"name": "entity.name.namespace.label.param.qsc",
-
-							"patterns": [
-								{
-									"name": "entity.name.namespace.label.template.qsc",
-									"match": "(\\()|(\\))|(\\,)"
-								},
-
-								{ "include": "#definition" }
-							]
-						}
-					}
-				}
-			]
-		},
-
-		"router_instruction": {
-			"patterns": [
-				{
-					"name": "keyword.control.router.symbol.qsc",
-					"match": "[\\<]?\\-\\>\\ "
-				},
-
-				{
-					"match": "([^\\s]+)(.*)",
-
-					"captures": {
-						"1": { "name": "keyword.control.router.main.qsc" },
-
-						"2": {
-							"name": "entity.name.namespace.label.param.qsc",
-
-							"patterns": [
-								{
-									"name": "entity.name.namespace.label.template.qsc",
-									"match": "(\\()|(\\))|(\\,)"
-								},
-
-								{ "include": "#variable" },
-
-								{ "include": "#definition" }
-							]
-						}
-					}
-				}
-			]
-		},
-
-		"command_instruction": {
-			"patterns": [
-				{
-					"name": "entity.name.function.command.symbol.qsc",
-					"match": "\\$"
-				},
-
-				{
-					"name": "entity.name.function.command.symbol.qsc",
-					"match": "\\&|\\^|\\%"
-				},
-
-				{
-					"match": "([^\\s]+)(.*)",
-
-					"captures": {
-						"1": {
-							"name": "entity.name.function.command.main.qsc"
-						},
-
-						"2": {
-							"name": "string.qsc",
-
-							"patterns": [
-								{ "include": "#richtext" },
-
-								{ "include": "#operator" },
-
-								{ "include": "#parentheses" },
-
-								{ "include": "#number" },
-
-								{ "include": "#keyword" },
-
-								{ "include": "#variable" },
-
-								{ "include": "#definition" }
-							]
-						}
-					}
-				}
-			]
-		},
-
-		"condition_instruction": {
-			"patterns": [
-				{
-					"name": "keyword.operator.condition.qsc",
-					"match": "\\?"
-				},
-
-				{ "include": "#richtext" },
-
-				{ "include": "#operator" },
-
-				{ "include": "#parentheses" },
-
-				{ "include": "#number" },
-
-				{ "include": "#keyword" },
-
-				{ "include": "#variable" },
-
-				{ "include": "#definition" },
-
-				{
 					"name": "string.qsc",
-					"match": "\\w+"
+
+					"patterns": [
+						{ "include": "#variable" },
+						{ "include": "#definition" },
+						{ "include": "#richtext" },
+						{ "include": "#operator" },
+						{ "include": "#parentheses" },
+						{ "include": "#number" },
+						{ "include": "#keyword" }
+					]
 				}
-			]
+			}
 		},
 
-		"tag": {
-			"patterns": [
-				{
-					"name": "variable.other.constant.tag.qsc",
-					"match": "\\#"
-				},
-
-				{
-					"name": "variable.other.constant.qsc",
-					"match": "\\w+"
-				}
-			]
-		},
-
-		"variable": {
-			"name": "variable.other.property.qsc",
-			"match": "{[^\\s]+}"
+		"concatenation": {
+			"name": "keyword.operator.concat.qsc",
+			"match": "\\|"
 		},
 
 		"definition": {
 			"name": "entity.name.other.preprocessor.macro.directive.param.qsc",
 			"match": "\\[\\[[^\\s]+\\]\\]"
+		},
+
+		"variable": {
+			"name": "variable.other.property.qsc",
+			"match": "{[^\\s]+}"
 		},
 
 		"richtext": {
@@ -402,7 +335,7 @@
 
 		"operator": {
 			"name": "keyword.operator.qsc",
-			"match": "=|\\~|\\band\\b|\\bAND\\b|\\bor\\b|\\bOR\\b|==|!=|>=|<=|(?<!-)>|<|\\+|-(?!>)|\\*|\/|\\%|\\^"
+			"match": "=|\\~|\\b(and|AND|or|OR)\\b|==|!=|>=|<=|(?<!-)>|<|\\+|-(?!>)|\\*|\/|\\%|\\^"
 		},
 
 		"parentheses": {
@@ -410,14 +343,14 @@
 			"match": "\\(|\\)"
 		},
 
-		"keyword": {
-			"name": "constant.language.qsc",
-			"match": "\\btrue\\b|\\bfalse\\b|\\bon\\b|\\boff\\b|\\bnull\\b|\\bnullptr\\b"
-		},
-
 		"number": {
 			"name": "constant.number.qsc",
 			"match": "(?<!\\w)([\\d]+)(?!\\w)"
+		},
+
+		"keyword": {
+			"name": "constant.language.qsc",
+			"match": "\\b(true|false|on|off|null|nullptr)\\b"
 		}
 	}
 }
