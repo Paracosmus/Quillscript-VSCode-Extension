@@ -7,10 +7,11 @@
     // Symbols used as brackets.
     "brackets": [
         [ "if:", "endif" ],
+        [ "{", "}" ],
     ],
 
     "colorizedBracketPairs": [
-        [ "{", "}" ],
+        // ~
     ],
 
     // Symbols that are auto closed when typing.
