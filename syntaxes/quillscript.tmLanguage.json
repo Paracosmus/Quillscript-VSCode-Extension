@@ -371,7 +371,7 @@
 
 		"definition": {
 			"name": "variable.other.global.qsc",
-			"match": "\\[\\[[^\\s]+\\]\\]"
+			"match": "\\[[^\\s]+\\]"
 		},
 
 		"variable": {
