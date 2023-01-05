@@ -12,6 +12,7 @@
 		{ "include": "#command"       },
 		{ "include": "#condition"     },
 		{ "include": "#directive"     },
+		{ "include": "#tag"           },
 		{ "include": "#text"          },
 		{ "include": "#concatenation" },
 		{ "include": "#instruction"   }
@@ -56,12 +57,32 @@
 
 		"label": {
 			"match": "[\\s]*(@|<@>)(.*?(?=(\\||\\/\\/|\\n)))",
-			"captures": { "0": { "patterns": [ { "include": "#label_instruction" } ] } }
+
+			"captures": {
+				"1": { "name": "storage.type.namespace.qsc" },
+
+				"2": {
+					"name": "entity.name.namespace.qsc",
+					"patterns": [ { "include": "#arguments" } ]
+				}
+			}
 		},
 
 		"router": {
 			"match": "[\\s]*(\\->|<\\->)(.*?(?=(\\||\\/\\/|\\n)))",
-			"captures": { "0": { "patterns": [ { "include": "#router_instruction" } ] } }
+
+			"captures": {
+				"1": { "name": "keyword.control.loop.qsc" },
+
+				"2": {
+					"name": "keyword.control.flow.qsc",
+					"patterns": [
+						{ "include": "#arguments" },
+						{ "include": "#variable" },
+						{ "include": "#definition" }
+					]
+				}
+			}
 		},
 
 		"command": {
@@ -88,7 +109,19 @@
 					]
 				},
 
-				"2": { "patterns": [ { "include": "#condition_instruction" } ] }
+				"2": {
+					"name": "string.qsc",
+
+					"patterns": [
+						{ "include": "#variable" },
+						{ "include": "#definition" },
+						{ "include": "#richtext" },
+						{ "include": "#operator" },
+						{ "include": "#parentheses" },
+						{ "include": "#number" },
+						{ "include": "#keyword" }
+					]
+				}
 			}
 		},
 
@@ -191,56 +224,14 @@
 			"captures": {
 				"1": {
 					"patterns": [
-						{ "include": "#label_instruction" },
-						{ "include": "#router_instruction" },
-
 						{
-							"match": "(\\?)(.*)",
+							"match": "[\\s]*(\\$?)(.*)",
 
 							"captures": {
-								"1": { "name": "keyword.control.conditional.qsc" },
-								"2": { "patterns": [ { "include": "#condition_instruction" } ] }
-							}
-						},
-
-						{
-							"match": "[\\s]*(?!(\\->|<\\->|@|<@>|\\?))(\\$?)(.*)",
-
-							"captures": {
-								"2": { "name": "storage.type.function.qsc" },
-								"3": { "patterns": [ { "include": "#command_instruction" } ] }
+								"1": { "name": "storage.type.function.qsc" },
+								"2": { "patterns": [ { "include": "#command_instruction" } ] }
 							}
 						}
-					]
-				}
-			}
-		},
-
-		"label_instruction": {
-			"match": "(@|<@>)(.*)",
-
-			"captures": {
-				"1": { "name": "storage.type.namespace.qsc" },
-
-				"2": {
-					"name": "entity.name.namespace.qsc",
-					"patterns": [ { "include": "#arguments" } ]
-				}
-			}
-		},
-
-		"router_instruction": {
-			"match": "(\\->|<\\->)(.*)",
-
-			"captures": {
-				"1": { "name": "keyword.control.loop.qsc" },
-
-				"2": {
-					"name": "keyword.control.flow.qsc",
-					"patterns": [
-						{ "include": "#arguments" },
-						{ "include": "#variable" },
-						{ "include": "#definition" }
 					]
 				}
 			}
@@ -342,23 +333,12 @@
 			}
 		},
 
-		"condition_instruction": {
-			"match": ".*",
+		"tag": {
+			"match": "[\\s]*(#)(\\w+)",
 
 			"captures": {
-				"0": {
-					"name": "string.qsc",
-
-					"patterns": [
-						{ "include": "#variable" },
-						{ "include": "#definition" },
-						{ "include": "#richtext" },
-						{ "include": "#operator" },
-						{ "include": "#parentheses" },
-						{ "include": "#number" },
-						{ "include": "#keyword" }
-					]
-				}
+				"1": { "name": "variable.other.constant.qsc" },
+				"2": { "name": "variable.other.constant.text.qsc" }
 			}
 		},
 
