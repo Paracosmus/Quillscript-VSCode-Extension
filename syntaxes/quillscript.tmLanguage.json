@@ -206,11 +206,11 @@
 						},
 
 						{
-							"match": "(\\s*)(?!(\\->|<\\->|@|<@>|\\?))(\\$?)(.*)",
+							"match": "[\\s*](?!(\\->|<\\->|@|<@>|\\?))(\\$?)(.*)",
 
 							"captures": {
-								"3": { "name": "entity.name.function.qsc" },
-								"4": { "patterns": [ { "include": "#command_instruction" } ] }
+								"2": { "name": "storage.type.function.qsc" },
+								"3": { "patterns": [ { "include": "#command_instruction" } ] }
 							}
 						}
 					]
@@ -294,12 +294,12 @@
 				"2": {
 					"patterns": [
 						{
-							"match": "(\\s*)?([\\&\\^\\%]?)(.*)",
+							"match": "[\\s*]([\\&\\^\\%]?)(.*)",
 
 							"captures": {
-								"2": { "name": "storage.type.function.qsc" },
+								"1": { "name": "storage.type.function.qsc" },
 
-								"3": {
+								"2": {
 									"name": "entity.name.function.qsc",
 
 									"patterns": [

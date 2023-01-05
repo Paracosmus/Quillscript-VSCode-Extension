@@ -1,0 +1,47 @@
+{
+    "Condition If": {
+        "prefix": [ "? if:" ],
+        "body": [
+            "if: ${1:condition}",
+            "",
+            "  ${2:statements}",
+            "",
+            "endif"
+        ],
+        "description": "."
+    },
+
+
+
+    "Directive Define": {
+        "prefix": [ "~ define" ],
+        "body": [ "~ define " ],
+        "description": "."
+    },
+
+    "Directive Replace": {
+        "prefix": [ "~ replace" ],
+        "body": [ "~ replace " ],
+        "description": "."
+    },
+
+    "Directive Start": {
+        "prefix": [ "~ start" ],
+        "body": [ "~ start" ],
+        "description": "."
+    },
+
+
+
+    "Tag Once": {
+        "prefix": [ "#once" ],
+        "body": [ "#once" ],
+        "description": "."
+    },
+
+    "Tag Mark": {
+        "prefix": [ "#mark" ],
+        "body": [ "#mark" ],
+        "description": "."
+    }
+}

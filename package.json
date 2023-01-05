@@ -46,9 +46,12 @@
             "path": "./syntaxes/quillscript.tmLanguage.json"
         }],
 
-        "snippets": [{
-            "language": "quillscript",
-            "path": "./snippets.json"
-        }]
+        "snippets": [
+            { "language": "quillscript", "path": "./snippets/language.json" },
+            { "language": "quillscript", "path": "./snippets/built-in.json" },
+            { "language": "quillscript", "path": "./snippets/objects.json" },
+            { "language": "quillscript", "path": "./snippets/quill.json" },
+            { "language": "quillscript", "path": "./snippets/tools.json" }
+        ]
     }
 }
