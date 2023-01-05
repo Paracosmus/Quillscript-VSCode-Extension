@@ -28,7 +28,8 @@
 	},
 
     "categories": [
-        "Programming Languages"
+        "Programming Languages",
+        "Snippets"
     ],
 
     "contributes": {
@@ -43,6 +44,11 @@
             "language": "quillscript",
             "scopeName": "source.qsc",
             "path": "./syntaxes/quillscript.tmLanguage.json"
+        }],
+
+        "snippets": [{
+            "language": "quillscript",
+            "path": "./snippets.json"
         }]
     }
 }

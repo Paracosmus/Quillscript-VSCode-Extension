@@ -1,0 +1,7 @@
+{
+    "Directive Define": {
+        "prefix": [ "~ define" ],
+        "body": [ "~ define" ],
+        "description": "."
+    }
+}
