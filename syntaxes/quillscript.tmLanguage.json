@@ -74,12 +74,10 @@
 		},
 
 		"condition": {
-			"match": "(\\??)((\\s+)?)(if:|elseif|else:|endif)(.*?(?=(\\||\\/\\/|\\n)))",
+			"match": "(\\?|\\? if:|\\? elseif:|\\? endif|if:|elseif:|endif)(.*?(?=(\\||\\/\\/|\\n)))",
 
 			"captures": {
-				"1": { "name": "keyword.control.conditional.qsc" },
-
-				"4": {
+				"1": {
 					"name": "keyword.control.conditional.qsc",
 
 					"patterns": [
@@ -90,7 +88,7 @@
 					]
 				},
 
-				"5": { "patterns": [ { "include": "#condition_instruction" } ] }
+				"2": { "patterns": [ { "include": "#condition_instruction" } ] }
 			}
 		},
 

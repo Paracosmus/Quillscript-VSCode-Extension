@@ -43,5 +43,19 @@
         "prefix": [ "#mark" ],
         "body": [ "#mark" ],
         "description": "."
+    },
+
+
+
+    "Custom Rich Text Tag": {
+        "prefix": [ "<></>" ],
+        "body": [ "<${1:tag}>${2:text}</>" ],
+        "description": "."
+    },
+
+    "Bold Rich Text Tag": {
+        "prefix": [ "<b></>" ],
+        "body": [ "<b>${0}</>" ],
+        "description": "."
     }
 }

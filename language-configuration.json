@@ -21,9 +21,6 @@
         { "open": "{", "close": "}" },
         { "open": "'", "close": "'" },
         { "open": "\"", "close": "\"" },
-        { "open": "<", "close": "></>" },
-
-        { "open": "if:", "close": "endif" },
     ],
 
     // Symbols that that can be used to surround a selection.
@@ -33,7 +30,7 @@
         { "open": "{", "close": "}" },
         { "open": "'", "close": "'" },
         { "open": "\"", "close": "\"" },
-        { "open": "<", "close": "</>" },
+        { "open": "<", "close": "></>" },
     ],
 
     "folding": {
