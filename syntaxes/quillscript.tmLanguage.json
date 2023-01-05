@@ -19,7 +19,7 @@
 
 	"repository": {
 		"dialogue": {
-			"match": "(\\-)(.*?(?=(\\||\\/\\/|\\n)))",
+			"match": "[\\s]*(\\-)(.*?(?=(\\||\\/\\/|\\n)))",
 
 			"captures": {
 				"1": { "name": "storage.type.class.qsc" },
@@ -37,7 +37,7 @@
 		},
 
 		"option": {
-			"match": "(\\*)(.*?(?=(\\||\\/\\/|\\n)))",
+			"match": "[\\s]*(\\*)(.*?(?=(\\||\\/\\/|\\n)))",
 
 			"captures": {
 				"1": { "name": "storage.type.enum.qsc" },
@@ -55,17 +55,17 @@
 		},
 
 		"label": {
-			"match": "(@|<@>)(.*?(?=(\\||\\/\\/|\\n)))",
+			"match": "[\\s]*(@|<@>)(.*?(?=(\\||\\/\\/|\\n)))",
 			"captures": { "0": { "patterns": [ { "include": "#label_instruction" } ] } }
 		},
 
 		"router": {
-			"match": "(\\->|<\\->)(.*?(?=(\\||\\/\\/|\\n)))",
+			"match": "[\\s]*(\\->|<\\->)(.*?(?=(\\||\\/\\/|\\n)))",
 			"captures": { "0": { "patterns": [ { "include": "#router_instruction" } ] } }
 		},
 
 		"command": {
-			"match": "(\\$)(.*?(?=(\\||\\/\\/|\\n)))",
+			"match": "[\\s]*(\\$)(.*?(?=(\\||\\/\\/|\\n)))",
 
 			"captures": {
 				"1": { "name": "storage.type.function.qsc" },
@@ -74,7 +74,7 @@
 		},
 
 		"condition": {
-			"match": "(\\?|\\? if:|\\? elseif:|\\? endif|if:|elseif:|endif)(.*?(?=(\\||\\/\\/|\\n)))",
+			"match": "[\\s]*(\\? if:|\\? elseif:|\\? else|\\? endif|if:|elseif:|else:|endif|\\?)(.*?(?=(\\||\\/\\/|\\n)))",
 
 			"captures": {
 				"1": {
@@ -93,7 +93,7 @@
 		},
 
 		"directive": {
-			"match": "(~)[\\s*]?(.*?(?=(\\||\\/\\/|\\n)))",
+			"match": "[\\s]*(~)[\\s]*?(.*?(?=(\\||\\/\\/|\\n)))",
 
 			"captures": {
 				"1": { "name": "punctuation.definition.directive.qsc" },
@@ -204,7 +204,7 @@
 						},
 
 						{
-							"match": "[\\s*](?!(\\->|<\\->|@|<@>|\\?))(\\$?)(.*)",
+							"match": "[\\s]*(?!(\\->|<\\->|@|<@>|\\?))(\\$?)(.*)",
 
 							"captures": {
 								"2": { "name": "storage.type.function.qsc" },
@@ -292,7 +292,7 @@
 				"2": {
 					"patterns": [
 						{
-							"match": "[\\s*]([\\&\\^\\%]?)(.*)",
+							"match": "[\\s]*([\\&\\^\\%]?)(.*)",
 
 							"captures": {
 								"1": { "name": "storage.type.function.qsc" },
