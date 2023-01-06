@@ -148,86 +148,45 @@
     "Tag Once": {
         "prefix": [ "#once" ],
         "body": [ "#once" ],
-        "description": "."
+        "description": "Special tag to make this statement play just once."
     },
 
     "Tag Mark": {
         "prefix": [ "#mark" ],
         "body": [ "#mark" ],
-        "description": "."
+        "description": "Special tag to create a variable for this statement on played."
     },
 
 
 
-    "Custom Rich Text Tag": {
-        "prefix": [ "<></>" ],
-        "body": [ "<${1:tag}>${2:text}</>" ],
-        "description": "."
-    },
+    "Custom Rich Text Tag":      { "prefix": "<></>",        "body": "<${1:tag}>${2:text}</>" },
+    "Bold Rich Text Tag":        { "prefix": "<b></>",       "body": "<b>${0}</>"             },
+    "Italic Rich Text Tag":      { "prefix": "<i></>",       "body": "<i>${0}</>"             },
+    "Bold Italic Rich Text Tag": { "prefix": "<bi></>",      "body": "<bi>${0}</>"            },
+    "Underline Rich Text Tag":   { "prefix": "<u></>",       "body": "<u>${0}</>"             },
+    "Strike Rich Text Tag":      { "prefix": "<s></>",       "body": "<s>${0}</>"             },
+    "Info Rich Text Tag":        { "prefix": "<info></>",    "body": "<info>${0}</>"          },
+    "Warning Rich Text Tag":     { "prefix": "<warning></>", "body": "<warning>${0}</>"       },
+    "Danger Rich Text Tag":      { "prefix": "<danger></>",  "body": "<danger>${0}</>"        },
+    "Disable Rich Text Tag":     { "prefix": "<disable></>", "body": "<disable>${0}</>"       },
+    "Big Rich Text Tag":         { "prefix": "<big></>",     "body": "<big>${0}</>"           },
+    "Small Rich Text Tag":       { "prefix": "<small></>",   "body": "<small>${0}</>"         },
 
-    "Bold Rich Text Tag": {
-        "prefix": [ "<b></>" ],
-        "body": [ "<b>${0}</>" ],
-        "description": "."
-    },
 
-    "Italic Rich Text Tag": {
-        "prefix": [ "<i></>" ],
-        "body": [ "<i>${0}</>" ],
-        "description": "."
-    },
 
-    "Bold Italic Rich Text Tag": {
-        "prefix": [ "<bi></>" ],
-        "body": [ "<bi>${0}</>" ],
-        "description": "."
-    },
+    "Log Print Type":     { "prefix": "Log",     "body": "Log",     "description": "enumerator: PrintType\n" },
+    "Success Print Type": { "prefix": "Success", "body": "Success", "description": "enumerator: PrintType\n" },
+    "Warning Print Type": { "prefix": "Warning", "body": "Warning", "description": "enumerator: PrintType\n" },
+    "Error Print Type":   { "prefix": "Error",   "body": "Error",   "description": "enumerator: PrintType\n" },
 
-    "Underline Rich Text Tag": {
-        "prefix": [ "<u></>" ],
-        "body": [ "<u>${0}</>" ],
-        "description": "."
-    },
+    "Default Input Mode":   { "prefix": "Default",   "body": "Default",   "description": "enumerator: InputMode\n" },
+    "GameOnly Input Mode":  { "prefix": "GameOnly",  "body": "GameOnly",  "description": "enumerator: InputMode\n" },
+    "GameAndUI Input Mode": { "prefix": "GameAndUI", "body": "GameAndUI", "description": "enumerator: InputMode\n" },
+    "UIOnly Input Mode":    { "prefix": "UIOnly",    "body": "UIOnly",    "description": "enumerator: InputMode\n" },
+    "Unchanged Input Mode": { "prefix": "Unchanged", "body": "Unchanged", "description": "enumerator: InputMode\n" },
 
-    "Strike Rich Text Tag": {
-        "prefix": [ "<s></>" ],
-        "body": [ "<s>${0}</>" ],
-        "description": "."
-    },
-
-    "Info Rich Text Tag": {
-        "prefix": [ "<info></>" ],
-        "body": [ "<info>${0}</>" ],
-        "description": "."
-    },
-
-    "Warning Rich Text Tag": {
-        "prefix": [ "<warning></>" ],
-        "body": [ "<warning>${0}</>" ],
-        "description": "."
-    },
-
-    "Danger Rich Text Tag": {
-        "prefix": [ "<danger></>" ],
-        "body": [ "<danger>${0}</>" ],
-        "description": "."
-    },
-
-    "Disable Rich Text Tag": {
-        "prefix": [ "<disable></>" ],
-        "body": [ "<disable>${0}</>" ],
-        "description": "."
-    },
-
-    "Big Rich Text Tag": {
-        "prefix": [ "<big></>" ],
-        "body": [ "<big>${0}</>" ],
-        "description": "."
-    },
-
-    "Small Rich Text Tag": {
-        "prefix": [ "<small></>" ],
-        "body": [ "<small>${0}</>" ],
-        "description": "."
-    }
+    "DoNotLock Mouse Lock Mode":        { "prefix": "DoNotLock",        "body": "DoNotLock",        "description": "enumerator: MouseLockMode\n" },
+    "LockOnCapture Mouse Lock Mode":    { "prefix": "LockOnCapture",    "body": "LockOnCapture",    "description": "enumerator: MouseLockMode\n" },
+    "LockAlways Mouse Lock Mode":       { "prefix": "LockAlways",       "body": "LockAlways",       "description": "enumerator: MouseLockMode\n" },
+    "LockInFullscreen Mouse Lock Mode": { "prefix": "LockInFullscreen", "body": "LockInFullscreen", "description": "enumerator: MouseLockMode\n" }
 }

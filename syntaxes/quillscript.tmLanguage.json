@@ -119,7 +119,8 @@
 						{ "include": "#operator" },
 						{ "include": "#parentheses" },
 						{ "include": "#number" },
-						{ "include": "#keyword" }
+						{ "include": "#keyword" },
+						{ "include": "#enum" }
 					]
 				}
 			}
@@ -272,7 +273,8 @@
 										{ "include": "#operator" },
 										{ "include": "#parentheses" },
 										{ "include": "#number" },
-										{ "include": "#keyword" }
+										{ "include": "#keyword" },
+										{ "include": "#enum" }
 									]
 								}
 							}
@@ -316,7 +318,8 @@
 														{ "include": "#definition" },
 														{ "include": "#richtext" },
 														{ "include": "#number" },
-														{ "include": "#keyword" }
+														{ "include": "#keyword" },
+														{ "include": "#enum" }
 													]
 												}
 											}
@@ -380,6 +383,11 @@
 		"keyword": {
 			"name": "constant.language.qsc",
 			"match": "\\b(true|false|on|off|null|nullptr)\\b"
+		},
+
+		"enum": {
+			"name": "variable.other.enummember.qsc",
+			"match": "\\b(Log|Success|Warning|Error)|(Default|GameOnly|GameAndUI|UIOnly|Unchanged)|(DoNotLock|LockOnCapture|LockAlways|LockInFullscreen)\\b"
 		}
 	}
 }
