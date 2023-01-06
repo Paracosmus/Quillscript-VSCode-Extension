@@ -1,2 +1,15 @@
 {
+    "Get Script Id": {
+        "prefix": [ "&Script.Id" ],
+        "body": [ "&Script.Id" ],
+        "description": [ "Store scritp 'Id' on {$Id}.\n" ]
+    },
+
+    "Get Script Original Path": {
+        "prefix": [ "&Script.OriginalPath" ],
+        "body": [ "&Script.OriginalPath" ],
+        "description": [ "Store script's 'Original Path' on {$OriginalPath}.\n" ]
+    }
+
+
 }

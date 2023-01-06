@@ -1,4 +1,90 @@
 {
+    "Game Instance Script Reference": {
+        "prefix": [ "& " ],
+        "body": [ "&GameInstance" ],
+        "description": [ "Script reference for the 'Game Instance' object.\n" ]
+    },
+
+    "Player Controller Script Reference": {
+        "prefix": [ "&PlayerController" ],
+        "body": [ "&PlayerController" ],
+        "description": [ "Script reference for the 'Player Controller' object.\n" ]
+    },
+
+    "Game Mode Script Reference": {
+        "prefix": [ "&GameMode" ],
+        "body": [ "&GameMode" ],
+        "description": [ "Script reference for the 'Game Mode' object.\n" ]
+    },
+
+    "Pawn Script Reference": {
+        "prefix": [ "&Pawn" ],
+        "body": [ "&Pawn" ],
+        "description": [ "Script reference for the 'Pawn' object.\n" ]
+    },
+
+    "Character Script Reference": {
+        "prefix": [ "&Character" ],
+        "body": [ "&Character" ],
+        "description": [ "Script reference for the 'Character' object.\n" ]
+    },
+
+    "Game State Script Reference": {
+        "prefix": [ "&GameState" ],
+        "body": [ "&GameState" ],
+        "description": [ "Script reference for the 'Game State' object.\n" ]
+    },
+
+    "Player State Script Reference": {
+        "prefix": [ "&PlayerState" ],
+        "body": [ "&PlayerState" ],
+        "description": [ "Script reference for the 'Player State' object.\n" ]
+    },
+
+    "Player Camera Manager Script Reference": {
+        "prefix": [ "&PlayerCameraManager" ],
+        "body": [ "&PlayerCameraManager" ],
+        "description": [ "Script reference for the 'Player Camera Manager' object.\n" ]
+    },
+
+    "Interpreter Script Reference": {
+        "prefix": [ "&Interpreter", "&this" ],
+        "body": [ "&Interpreter" ],
+        "description": [ "Script reference for the 'Interpreter' object.\n" ]
+    },
+
+    "Script Script Reference": {
+        "prefix": [ "&Script" ],
+        "body": [ "&Script" ],
+        "description": [ "Script reference for the 'Script' object.\n" ]
+    },
+
+    "Dialog Box Script Reference": {
+        "prefix": [ "&DialogBox" ],
+        "body": [ "&DialogBox" ],
+        "description": [ "Script reference for the 'Dialog Box' object.\n" ]
+    },
+
+    "Selection Box Script Reference": {
+        "prefix": [ "&SelectionBox" ],
+        "body": [ "&SelectionBox" ],
+        "description": [ "Script reference for the 'Selection Box' object.\n" ]
+    },
+
+    "Background Box Script Reference": {
+        "prefix": [ "&BackgroundBox" ],
+        "body": [ "&BackgroundBox" ],
+        "description": [ "Script reference for the 'Background Box' object.\n" ]
+    },
+
+    "Level Script Reference": {
+        "prefix": [ "&Level" ],
+        "body": [ "&Level" ],
+        "description": [ "Script reference for the 'Level' object.\n" ]
+    },
+
+
+
     "Condition If": {
         "prefix": [ "if:" ],
         "body": [
@@ -91,9 +177,57 @@
         "description": "."
     },
 
+    "Bold Italic Rich Text Tag": {
+        "prefix": [ "<bi></>" ],
+        "body": [ "<bi>${0}</>" ],
+        "description": "."
+    },
+
     "Underline Rich Text Tag": {
         "prefix": [ "<u></>" ],
         "body": [ "<u>${0}</>" ],
+        "description": "."
+    },
+
+    "Strike Rich Text Tag": {
+        "prefix": [ "<s></>" ],
+        "body": [ "<s>${0}</>" ],
+        "description": "."
+    },
+
+    "Info Rich Text Tag": {
+        "prefix": [ "<info></>" ],
+        "body": [ "<info>${0}</>" ],
+        "description": "."
+    },
+
+    "Warning Rich Text Tag": {
+        "prefix": [ "<warning></>" ],
+        "body": [ "<warning>${0}</>" ],
+        "description": "."
+    },
+
+    "Danger Rich Text Tag": {
+        "prefix": [ "<danger></>" ],
+        "body": [ "<danger>${0}</>" ],
+        "description": "."
+    },
+
+    "Disable Rich Text Tag": {
+        "prefix": [ "<disable></>" ],
+        "body": [ "<disable>${0}</>" ],
+        "description": "."
+    },
+
+    "Big Rich Text Tag": {
+        "prefix": [ "<big></>" ],
+        "body": [ "<big>${0}</>" ],
+        "description": "."
+    },
+
+    "Small Rich Text Tag": {
+        "prefix": [ "<small></>" ],
+        "body": [ "<small>${0}</>" ],
         "description": "."
     }
 }
