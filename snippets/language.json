@@ -83,5 +83,17 @@
         "prefix": [ "<b></>" ],
         "body": [ "<b>${0}</>" ],
         "description": "."
+    },
+
+    "Italic Rich Text Tag": {
+        "prefix": [ "<i></>" ],
+        "body": [ "<i>${0}</>" ],
+        "description": "."
+    },
+
+    "Underline Rich Text Tag": {
+        "prefix": [ "<u></>" ],
+        "body": [ "<u>${0}</>" ],
+        "description": "."
     }
 }
