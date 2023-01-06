@@ -1,6 +1,6 @@
 {
     "Game Instance Script Reference": {
-        "prefix": [ "& " ],
+        "prefix": [ "&GameInstance" ],
         "body": [ "&GameInstance" ],
         "description": [ "Script reference for the 'Game Instance' object.\n" ]
     },

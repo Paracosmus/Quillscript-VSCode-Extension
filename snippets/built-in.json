@@ -1,35 +1,65 @@
 {
     "Change Background": {
-        "prefix": [ "$ ChangeBackground" ],
-        "body": [ "$ ChangeBackground {&/Game/} fade 0.5" ],
+        "prefix": [ "$ Background" ],
+        "body": [ "$ Background {&/Game/${1}} ${2:fade} ${3:0.5}" ],
         "description": [
             "Change the background image on screen with a transition animation.",
-            "    (path: ref)          script reference by path to the image file",
-            "    (transition: string) [ none, fade, dissolve, scrollup, shake ]",
-            "    (duration: float)    in seconds",
+            "    (Image: ref)              script reference by path to the image file",
+            "    (Transition: string = '') [ none, fade, dissolve, scrollup, shake ]",
+            "    (Duration: float = 0.5)   in seconds",
             "",
             "Example:",
-            "$ ChangeBackground {&/Game/Backgrounds/School.School}",
-            "$ ChangeBackground {&MyRef} dissolve 1",
+            "$ Background {&/Game/Scenarios/School.School}",
+            "$ Background {&MyRef} dissolve 1",
             "\n"
         ]
     },
 
     "Play Sound": {
         "prefix": [ "$ PlaySound" ],
-        "body": [ "$ PlaySound " ],
-        "description": "."
+        "body": [ "$ PlaySound {&/Game/${1}} ${2:channel}" ],
+        "description": [
+            "Change the background image on screen with a transition animation.",
+            "    (Sound: ref)                  script reference by path to the image file",
+            "    (Channel: string = 'default') [ none, fade, dissolve, scrollup, shake ]",
+            "    (Volume: float = 1)           volume multiplier",
+            "    (FadeDuration: float = 0)     in seconds",
+            "",
+            "Example:",
+            "$ PlaySound {&/Game/Voices/Line33.Line33}",
+            "$ PlaySound {&/Game/SFXs/Explosion.Explosion} SFX 2",
+            "$ PlaySound {&/Game/Musics/Piano.Piano} BackgroundMusic 0.5 0.5",
+            "\n"
+        ]
     },
 
     "Stop Sound": {
         "prefix": [ "$ StopSound" ],
-        "body": [ "$ StopSound " ],
-        "description": "."
+        "body": [ "$ StopSound ${1:channel}" ],
+        "description": [
+            "Change the background image on screen with a transition animation.",
+            "    (Channel: string = 'default') sound channel name",
+            "    (FadeDuration: float = 0)     in seconds",
+            "",
+            "Example:",
+            "$ StopSound",
+            "$ StopSound BobVoice",
+            "$ StopSound BackgroundMusic 0.5",
+            "\n"
+        ]
     },
 
     "Stop All Sounds": {
         "prefix": [ "$ StopAllSounds" ],
-        "body": [ "$ StopAllSounds " ],
-        "description": "."
+        "body": [ "$ StopAllSounds" ],
+        "description": [
+            "Change the background image on screen with a transition animation.",
+            "    (FadeDuration: float = 0) in seconds",
+            "",
+            "Example:",
+            "$ StopAllSounds",
+            "$ StopAllSounds 0.5",
+            "\n"
+        ]
     }
 }
