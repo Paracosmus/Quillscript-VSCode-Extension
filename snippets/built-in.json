@@ -1,4 +1,246 @@
 {
+    "Restart": {
+        "prefix": [ "$ Restart" ],
+        "body": [ "$ Restart" ],
+        "description": [ "Go back to the beginning of the script.\n\n" ]
+    },
+
+    "Next": {
+        "prefix": [ "$ Next" ],
+        "body": [ "$ Next" ],
+        "description": [ "Go to next Statement.\n\n" ]
+    },
+
+    "Rollback": {
+        "prefix": [ "$ Rollback" ],
+        "body": [ "$ Rollback" ],
+        "description": [ "Go to previous executed Statement.\n\n" ]
+    },
+
+    "Repeat": {
+        "prefix": [ "$ Repeat" ],
+        "body": [ "$ Repeat" ],
+        "description": [ "Restart current label statement.\n\n" ]
+    },
+
+    "Done": {
+        "prefix": [ "$ Done" ],
+        "body": [ "$ Done" ],
+        "description": [ "Advance to next label statement.\n\n" ]
+    },
+
+    "Return": {
+        "prefix": [ "$ Return" ],
+        "body": [ "$ Return" ],
+        "description": [ "Go back to last executed Router statement.\n\n" ]
+    },
+
+    "End": {
+        "prefix": [ "$ End" ],
+        "body": [ "$ End" ],
+        "description": [ "End this script.\n\n" ]
+    },
+
+    "Stop": {
+        "prefix": [ "$ Stop" ],
+        "body": [ "$ Stop" ],
+        "description": [ "Prevents this scene from proceeding.\n\n" ]
+    },
+
+    "Wait": {
+        "prefix": [ "$ Wait" ],
+        "body": [ "$ Wait ${1:0.2}" ],
+        "description": [
+            "Stop script for few seconds.",
+            "    (Duration: float = 0.2) in seconds",
+            "",
+            "Example:",
+            "$ Wait 5",
+            "$ Wait 0.725",
+            "\n"
+        ]
+    },
+
+    "Travel": {
+        "prefix": [ "$ Travel" ],
+        "body": [ "$ Travel {&/Game/${1}} ${2:LabelName}" ],
+        "description": [
+            "Play new script from start or from label, and end current script.",
+            "    (TargetScript: ref           script reference",
+            "    (StartingLabel: string = '') starting label name",
+            "",
+            "Example:",
+            "$ Travel {&/Game/Scripts/Intro.Intro}",
+            "$ Travel {&/Plugin/Screenplay/Act1.Act1} Chapter2",
+            "\n"
+        ]
+    },
+
+
+
+    "Print": {
+        "prefix": [ "$ Print" ],
+        "body": [ "$ Print ${1:variable}" ],
+        "description": [
+            "Print the given Quillscript variable's value.",
+            "    (VariableName: string) Quillscript variable name",
+            "",
+            "Example:",
+            "$ Print characterName",
+            "\n"
+        ]
+    },
+
+    "Delete": {
+        "prefix": [ "$ Delete" ],
+        "body": [ "$ Delete" ],
+        "description": [
+            "Delete the given Quillscript variable.",
+            "    (VariableName: string) Quillscript variable name",
+            "",
+            "Example:",
+            "$ Delete counter",
+            "\n"
+        ]
+    },
+
+    "Notify": {
+        "prefix": [ "$ Notify" ],
+        "body": [ "$ Notify" ],
+        "description": [
+            "Notify all registered observers in 'UQuillscriptSubsystem::OnNotified(FString)'.",
+            "    (Message: string) message to pass to observers",
+            "",
+            "Example:",
+            "$ Notify 72",
+            "$ Notify \"Boss defeated\"",
+            "\n"
+        ]
+    },
+
+
+
+    "SetInputMode": {
+        "prefix": [ "$ SetInputMode" ],
+        "body": [ "$ SetInputMode ${1:GameAndUI}" ],
+        "description": [
+            "Change the game input mode.",
+            "    (InputMode: InputMode)                          [ Default, GameOnly, GameAndUI, UIOnly, Unchanged ]",
+            "    (MouseLockMode: EMouseLockMode = LockOnCapture) [ DoNotLock, LockOnCapture, LockAlways, LockInFullscreen ]",
+            "    (HideCursorDuringCapture: bool = false)         Hide mouse cursor when mouse is captured.",
+            "    (WidgetToFocus: ref = null)                     Widget script reference to focus on.",
+            "",
+            "Example:",
+            "$ SetInputMode GameOnly",
+            "$ SetInputMode GameAndUI LockAlways",
+            "$ SetInputMode UIOnly LockOnCapture true {&MyWidget}",
+            "\n"
+        ]
+    },
+
+    "InputEnable": {
+        "prefix": [ "$ InputEnable" ],
+        "body": [ "$ InputEnable" ],
+        "description": [ "Enable input, move input and look input.\n\n" ]
+    },
+
+    "InputDisable": {
+        "prefix": [ "$ InputDisable" ],
+        "body": [ "$ InputDisable" ],
+        "description": [ "Disable input, move input and look input.\n\n" ]
+    },
+
+    "ShowMouseCursor": {
+        "prefix": [ "$ ShowMouseCursor" ],
+        "body": [ "$ ShowMouseCursor" ],
+        "description": [ "Show mouse cursor.\n\n" ]
+    },
+
+    "HideMouseCursor": {
+        "prefix": [ "$ HideMouseCursor" ],
+        "body": [ "$ HideMouseCursor" ],
+        "description": [ "Show mouse cursor.\n\n" ]
+    },
+
+
+
+    "Use": {
+        "prefix": [ "$ Use" ],
+        "body": [ "$ Use ${1:path}" ],
+        "description": [
+            "Use the specified class or keyword for Dialog Box, Selection Box and Background Box.",
+            "",
+            "Keywords:",
+            "    Default        Reset to default all boxes classes.",
+            "    DialogBox      Reset to default Dialog Box class.",
+            "    SelectionBox   Reset to default Selection Box class.",
+            "    BackgroundBox  Reset to default Background Box class.",
+            "",
+            "Class Path:",
+            "    /Script/Quillscript.DialogBox",
+            "    /Game/MyFolder/MyDialogBox.MyDialogBox",
+            "",
+            "    (WidgetClassPath: string) widget class path, or keyword",
+            "",
+            "Example:",
+            "$ Use Default",
+            "$ Use DialogBox",
+            "$ Use /Script/Quillscript.DialogBox",
+            "$ Use /Game/MyFolder/MyDialogBox.MyDialogBox",
+            "\n"
+        ]
+    },
+
+    "ShowDialogBox": {
+        "prefix": [ "$ ShowDialogBox" ],
+        "body": [ "$ ShowDialogBox" ],
+        "description": [ "Add Dialog Box to viewport.\n\n" ]
+    },
+
+    "ShowSelectionBox": {
+        "prefix": [ "$ ShowSelectionBox" ],
+        "body": [ "$ ShowSelectionBox" ],
+        "description": [ "Add Selection Box to viewport.\n\n" ]
+    },
+
+    "ShowBackgroundBox": {
+        "prefix": [ "$ ShowBackgroundBox" ],
+        "body": [ "$ ShowBackgroundBox" ],
+        "description": [ "Add Background Box to viewport.\n\n" ]
+    },
+
+    "RemoveDialogBox": {
+        "prefix": [ "$ RemoveDialogBox" ],
+        "body": [ "$ RemoveDialogBox" ],
+        "description": [ "Remove Dialog Box from viewport.\n\n" ]
+    },
+
+    "RemoveSelectionBox": {
+        "prefix": [ "$ RemoveSelectionBox" ],
+        "body": [ "$ RemoveSelectionBox" ],
+        "description": [ "Remove Selection Box from viewport.\n\n" ]
+    },
+
+    "RemoveBackgroundBox": {
+        "prefix": [ "$ RemoveBackgroundBox" ],
+        "body": [ "$ RemoveBackgroundBox" ],
+        "description": [ "Remove Background Box from viewport.\n\n" ]
+    },
+
+    "Show": {
+        "prefix": [ "$ Show" ],
+        "body": [ "$ Show" ],
+        "description": [ "Show Dialog Box and Selection Box.\n\n" ]
+    },
+
+    "Hide": {
+        "prefix": [ "$ Hide" ],
+        "body": [ "$ Hide" ],
+        "description": [ "Hide Dialog Box and Selection Box.\n\n" ]
+    },
+
+
+
     "Change Background": {
         "prefix": [ "$ Background" ],
         "body": [ "$ Background {&/Game/${1}} ${2:fade} ${3:0.5}" ],
@@ -61,5 +303,19 @@
             "$ StopAllSounds 0.5",
             "\n"
         ]
+    },
+
+
+
+    "Get Script Id": {
+        "prefix": [ "&Script.Id" ],
+        "body": [ "&Script.Id" ],
+        "description": [ "Store script's 'Id' on {$Id}.\n" ]
+    },
+
+    "Get Script Original Path": {
+        "prefix": [ "&Script.OriginalPath" ],
+        "body": [ "&Script.OriginalPath" ],
+        "description": [ "Store script's 'Original Path' on {$OriginalPath}.\n" ]
     }
 }

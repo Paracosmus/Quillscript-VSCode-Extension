@@ -1,15 +1,77 @@
 {
-    "Get Script Id": {
-        "prefix": [ "&Script.Id" ],
-        "body": [ "&Script.Id" ],
-        "description": [ "Store scritp 'Id' on {$Id}.\n" ]
+    "Log Function": {
+        "prefix": [ "$ ^Quillscript.Tools.Log" ],
+        "body": [ "$ ^Quillscript.Tools.Log \"${1:Message}\" ${2:null} ${3:Log}" ],
+        "description": [
+            "Display a log message.",
+            "   (Message: string)            message to display",
+            "   (Owner: ref = null)          reference to the owner of the message",
+            "   (PrintType: PrintType = Log) [ Log, Success, Warning, Error ]",
+            "",
+            "Example:",
+            "$ ^Quillscript.Tools.Log \"Hello, World!\"",
+            "$ ^Quillscript.Tools.Log Oops! {&ScriptRef} Error",
+            "\n"
+        ]
     },
 
-    "Get Script Original Path": {
-        "prefix": [ "&Script.OriginalPath" ],
-        "body": [ "&Script.OriginalPath" ],
-        "description": [ "Store script's 'Original Path' on {$OriginalPath}.\n" ]
+    "Print Function": {
+        "prefix": [ "$ ^Quillscript.Tools.Print" ],
+        "body": [ "$ ^Quillscript.Tools.Print \"${1:Message}\"" ],
+        "description": [
+            "Display a message",
+            "   (Message: string)   message to display",
+            "   (Owner: ref = null) reference to the owner of the message",
+            "",
+            "Example:",
+            "$ ^Quillscript.Tools.Print Hello",
+            "$ ^Quillscript.Tools.Print \"Hello, World!\" {&ScriptRef}",
+            "\n"
+        ]
+    },
+
+    "Success Function": {
+        "prefix": [ "$ ^Quillscript.Tools.Success" ],
+        "body": [ "$ ^Quillscript.Tools.Success \"${1:Message}\"" ],
+        "description": [
+            "Display a success message",
+            "   (Message: string)   message to display",
+            "   (Owner: ref = null) reference to the owner of the message",
+            "",
+            "Example:",
+            "$ ^Quillscript.Tools.Success Hello",
+            "$ ^Quillscript.Tools.Success \"Hello, World!\" {&ScriptRef}",
+            "\n"
+        ]
+    },
+
+    "Warning Function": {
+        "prefix": [ "$ ^Quillscript.Tools.Warning" ],
+        "body": [ "$ ^Quillscript.Tools.Warning \"${1:Message}\"" ],
+        "description": [
+            "Display a warning message",
+            "   (Message: string)   message to display",
+            "   (Owner: ref = null) reference to the owner of the message",
+            "",
+            "Example:",
+            "$ ^Quillscript.Tools.Warning Hello",
+            "$ ^Quillscript.Tools.Warning \"Hello, World!\" {&ScriptRef}",
+            "\n"
+        ]
+    },
+
+    "Error Function": {
+        "prefix": [ "$ ^Quillscript.Tools.Error" ],
+        "body": [ "$ ^Quillscript.Tools.Error \"${1:Message}\"" ],
+        "description": [
+            "Display an error message",
+            "   (Message: string)   message to display",
+            "   (Owner: ref = null) reference to the owner of the message",
+            "",
+            "Example:",
+            "$ ^Quillscript.Tools.Error Hello",
+            "$ ^Quillscript.Tools.Error \"Hello, World!\" {&ScriptRef}",
+            "\n"
+        ]
     }
-
-
 }
