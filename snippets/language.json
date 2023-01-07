@@ -1,86 +1,92 @@
 {
-    "Game Instance Script Reference": {
+    "Create Variable": {
+        "prefix": [ "var" ],
+        "body": [ "${1:variableName} := ${2:variableValue}" ],
+        "description": "Create Quillscript variable if it does not exists.\n\n"
+    },
+
+    "Game Instance Reference": {
         "prefix": [ "&GameInstance" ],
         "body": [ "&GameInstance" ],
-        "description": [ "Script reference for the 'Game Instance' object.\n" ]
+        "description": [ "Script reference for the 'Game Instance' object.\n\n" ]
     },
 
-    "Player Controller Script Reference": {
+    "Player Controller Reference": {
         "prefix": [ "&PlayerController" ],
         "body": [ "&PlayerController" ],
-        "description": [ "Script reference for the 'Player Controller' object.\n" ]
+        "description": [ "Script reference for the 'Player Controller' object.\n\n" ]
     },
 
-    "Game Mode Script Reference": {
+    "Game Mode Reference": {
         "prefix": [ "&GameMode" ],
         "body": [ "&GameMode" ],
-        "description": [ "Script reference for the 'Game Mode' object.\n" ]
+        "description": [ "Script reference for the 'Game Mode' object.\n\n" ]
     },
 
-    "Pawn Script Reference": {
+    "Pawn Reference": {
         "prefix": [ "&Pawn" ],
         "body": [ "&Pawn" ],
-        "description": [ "Script reference for the 'Pawn' object.\n" ]
+        "description": [ "Script reference for the 'Pawn' object.\n\n" ]
     },
 
-    "Character Script Reference": {
+    "Character Reference": {
         "prefix": [ "&Character" ],
         "body": [ "&Character" ],
-        "description": [ "Script reference for the 'Character' object.\n" ]
+        "description": [ "Script reference for the 'Character' object.\n\n" ]
     },
 
-    "Game State Script Reference": {
+    "Game State Reference": {
         "prefix": [ "&GameState" ],
         "body": [ "&GameState" ],
-        "description": [ "Script reference for the 'Game State' object.\n" ]
+        "description": [ "Script reference for the 'Game State' object.\n\n" ]
     },
 
-    "Player State Script Reference": {
+    "Player State Reference": {
         "prefix": [ "&PlayerState" ],
         "body": [ "&PlayerState" ],
-        "description": [ "Script reference for the 'Player State' object.\n" ]
+        "description": [ "Script reference for the 'Player State' object.\n\n" ]
     },
 
-    "Player Camera Manager Script Reference": {
+    "Player Camera Manager Reference": {
         "prefix": [ "&PlayerCameraManager" ],
         "body": [ "&PlayerCameraManager" ],
-        "description": [ "Script reference for the 'Player Camera Manager' object.\n" ]
+        "description": [ "Script reference for the 'Player Camera Manager' object.\n\n" ]
     },
 
-    "Interpreter Script Reference": {
+    "Interpreter Reference": {
         "prefix": [ "&Interpreter", "&this" ],
         "body": [ "&Interpreter" ],
-        "description": [ "Script reference for the 'Interpreter' object.\n" ]
+        "description": [ "Script reference for the 'Interpreter' object.\n\n" ]
     },
 
-    "Script Script Reference": {
+    "Script Reference": {
         "prefix": [ "&Script" ],
         "body": [ "&Script" ],
-        "description": [ "Script reference for the 'Script' object.\n" ]
+        "description": [ "Script reference for the 'Script' object.\n\n" ]
     },
 
-    "Dialog Box Script Reference": {
+    "Dialog Box Reference": {
         "prefix": [ "&DialogBox" ],
         "body": [ "&DialogBox" ],
-        "description": [ "Script reference for the 'Dialog Box' object.\n" ]
+        "description": [ "Script reference for the 'Dialog Box' object.\n\n" ]
     },
 
-    "Selection Box Script Reference": {
+    "Selection Box Reference": {
         "prefix": [ "&SelectionBox" ],
         "body": [ "&SelectionBox" ],
-        "description": [ "Script reference for the 'Selection Box' object.\n" ]
+        "description": [ "Script reference for the 'Selection Box' object.\n\n" ]
     },
 
-    "Background Box Script Reference": {
+    "Background Box Reference": {
         "prefix": [ "&BackgroundBox" ],
         "body": [ "&BackgroundBox" ],
-        "description": [ "Script reference for the 'Background Box' object.\n" ]
+        "description": [ "Script reference for the 'Background Box' object.\n\n" ]
     },
 
-    "Level Script Reference": {
+    "Level Reference": {
         "prefix": [ "&Level" ],
         "body": [ "&Level" ],
-        "description": [ "Script reference for the 'Level' object.\n" ]
+        "description": [ "Script reference for the 'Level' object.\n\n" ]
     },
 
 
@@ -94,7 +100,7 @@
             "",
             "endif"
         ],
-        "description": [ "Create a conditional section between the 'if: condition' and 'endif' statements.\n" ]
+        "description": [ "Create a conditional section between the 'if: condition' and 'endif' statements.\n\n" ]
     },
 
     "Condition Else If": {
@@ -104,7 +110,7 @@
             "",
             "  ${2:statements}"
         ],
-        "description": [ "Must be inside an 'if:endif' section, will play only if its condition is 'on' and the 'if:' statement fails.\n" ]
+        "description": [ "Must be inside an 'if:endif' section, will play only if its condition is 'on' and the 'if:' statement fails.\n\n" ]
     },
 
     "Condition Else": {
@@ -114,13 +120,13 @@
             "",
             "  ${0}"
         ],
-        "description": [ "Must be inside an 'if:endif' section, will play only if the 'if:' and all 'endif:' statements fails.\n" ]
+        "description": [ "Must be inside an 'if:endif' section, will play only if the 'if:' and all 'endif:' statements fails.\n\n" ]
     },
 
     "Condition End If": {
         "prefix": [ "endif" ],
         "body": [ "endif\n\n" ],
-        "description": [ "End a 'if:' section.\n" ]
+        "description": [ "End a 'if:' section.\n\n" ]
     },
 
 
@@ -148,13 +154,13 @@
     "Tag Once": {
         "prefix": [ "#once" ],
         "body": [ "#once" ],
-        "description": "Special tag to make this statement play just once."
+        "description": "Special tag to make this statement play just once.\n\n"
     },
 
     "Tag Mark": {
         "prefix": [ "#mark" ],
         "body": [ "#mark" ],
-        "description": "Special tag to create a variable for this statement on played."
+        "description": "Special tag to create a variable for this statement on played.\n\n"
     },
 
 
@@ -174,19 +180,19 @@
 
 
 
-    "Log Print Type":     { "prefix": "Log",     "body": "Log",     "description": "enumerator: PrintType\n" },
-    "Success Print Type": { "prefix": "Success", "body": "Success", "description": "enumerator: PrintType\n" },
-    "Warning Print Type": { "prefix": "Warning", "body": "Warning", "description": "enumerator: PrintType\n" },
-    "Error Print Type":   { "prefix": "Error",   "body": "Error",   "description": "enumerator: PrintType\n" },
+    "Log Print Type":     { "prefix": "Log",     "body": "Log",     "description": "enumerator: PrintType\n\n" },
+    "Success Print Type": { "prefix": "Success", "body": "Success", "description": "enumerator: PrintType\n\n" },
+    "Warning Print Type": { "prefix": "Warning", "body": "Warning", "description": "enumerator: PrintType\n\n" },
+    "Error Print Type":   { "prefix": "Error",   "body": "Error",   "description": "enumerator: PrintType\n\n" },
 
-    "Default Input Mode":   { "prefix": "Default",   "body": "Default",   "description": "enumerator: InputMode\n" },
-    "GameOnly Input Mode":  { "prefix": "GameOnly",  "body": "GameOnly",  "description": "enumerator: InputMode\n" },
-    "GameAndUI Input Mode": { "prefix": "GameAndUI", "body": "GameAndUI", "description": "enumerator: InputMode\n" },
-    "UIOnly Input Mode":    { "prefix": "UIOnly",    "body": "UIOnly",    "description": "enumerator: InputMode\n" },
-    "Unchanged Input Mode": { "prefix": "Unchanged", "body": "Unchanged", "description": "enumerator: InputMode\n" },
+    "Default Input Mode":   { "prefix": "Default",   "body": "Default",   "description": "enumerator: InputMode\n\n" },
+    "GameOnly Input Mode":  { "prefix": "GameOnly",  "body": "GameOnly",  "description": "enumerator: InputMode\n\n" },
+    "GameAndUI Input Mode": { "prefix": "GameAndUI", "body": "GameAndUI", "description": "enumerator: InputMode\n\n" },
+    "UIOnly Input Mode":    { "prefix": "UIOnly",    "body": "UIOnly",    "description": "enumerator: InputMode\n\n" },
+    "Unchanged Input Mode": { "prefix": "Unchanged", "body": "Unchanged", "description": "enumerator: InputMode\n\n" },
 
-    "DoNotLock Mouse Lock Mode":        { "prefix": "DoNotLock",        "body": "DoNotLock",        "description": "enumerator: MouseLockMode\n" },
-    "LockOnCapture Mouse Lock Mode":    { "prefix": "LockOnCapture",    "body": "LockOnCapture",    "description": "enumerator: MouseLockMode\n" },
-    "LockAlways Mouse Lock Mode":       { "prefix": "LockAlways",       "body": "LockAlways",       "description": "enumerator: MouseLockMode\n" },
-    "LockInFullscreen Mouse Lock Mode": { "prefix": "LockInFullscreen", "body": "LockInFullscreen", "description": "enumerator: MouseLockMode\n" }
+    "DoNotLock Mouse Lock Mode":        { "prefix": "DoNotLock",        "body": "DoNotLock",        "description": "enumerator: MouseLockMode\n\n" },
+    "LockOnCapture Mouse Lock Mode":    { "prefix": "LockOnCapture",    "body": "LockOnCapture",    "description": "enumerator: MouseLockMode\n\n" },
+    "LockAlways Mouse Lock Mode":       { "prefix": "LockAlways",       "body": "LockAlways",       "description": "enumerator: MouseLockMode\n\n" },
+    "LockInFullscreen Mouse Lock Mode": { "prefix": "LockInFullscreen", "body": "LockInFullscreen", "description": "enumerator: MouseLockMode\n\n" }
 }
