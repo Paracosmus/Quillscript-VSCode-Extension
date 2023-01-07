@@ -1,9 +1,17 @@
 {
     "Create Variable": {
-        "prefix": [ "var" ],
+        "prefix": [ "var", "let" ],
         "body": [ "${1:variableName} := ${2:variableValue}" ],
         "description": "Create Quillscript variable if it does not exists.\n\n"
     },
+
+    "Create Constant": {
+        "prefix": [ "const" ],
+        "body": [ "${1:CONSTANT_NAME} := ${2:constantValue}" ],
+        "description": "Create Quillscript constant if it does not exists.\n\n"
+    },
+
+
 
     "Game Instance Reference": {
         "prefix": [ "&GameInstance" ],
