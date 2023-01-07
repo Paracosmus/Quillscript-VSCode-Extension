@@ -15,7 +15,9 @@ Copy and paste the following code to your settings.json to apply our recommended
     "editor.fontSize": 16,
     "editor.wordWrap": "off",
     "editor.renderWhitespace": "trailing",
-    "files.insertFinalNewline": true
+    "editor.tabCompletion": "on",
+    "editor.snippetSuggestions": "inline",
+    "files.insertFinalNewline": true,
 },
 ```
 
@@ -30,14 +32,14 @@ Copy and paste the following code to your settings.json to apply our recommended
     "textMateRules": [
         // Dialogue
         {
-            "scope": [ "entity.name.type.class.dialogue.symbol.qsc" ],
+            "scope": [ "storage.type.class.qsc" ],
             "settings": {
                 "foreground": "#0e4a8f",
                 "fontStyle": "bold"
             }
         },
         {
-            "scope": [ "entity.name.type.class.dialogue.main.qsc" ],
+            "scope": [ "entity.name.type.class.qsc" ],
             "settings": {
                 "foreground": "#349df3",
                 "fontStyle": "bold"
@@ -46,14 +48,14 @@ Copy and paste the following code to your settings.json to apply our recommended
 
         // Option
         {
-            "scope": [ "entity.name.type.enum.option.symbol.qsc" ],
+            "scope": [ "storage.type.enum.qsc" ],
             "settings": {
                 "foreground": "#811818",
                 "fontStyle": "bold"
             }
         },
         {
-            "scope": [ "entity.name.type.enum.option.main.qsc" ],
+            "scope": [ "entity.name.type.enum.qsc" ],
             "settings": {
                 "foreground": "#ef5350"
             }
@@ -61,43 +63,47 @@ Copy and paste the following code to your settings.json to apply our recommended
 
         // Label
         {
-            "scope": [ "entity.name.namespace.label.symbol.qsc" ],
+            "scope": [ "storage.type.namespace.qsc" ],
             "settings": {
                 "foreground": "#ad1457",
                 "fontStyle": "bold"
             }
         },
         {
-            "scope": [ "entity.name.namespace.label.main.qsc" ],
+            "scope": [ "entity.name.namespace.qsc" ],
             "settings": {
                 "foreground": "#b64168",
                 "fontStyle": "bold"
             }
         },
         {
-            "scope": [ "entity.name.namespace.label.param.qsc" ],
+            "scope": [ "variable.parameter.qsc" ],
             "settings": {
                 "foreground": "#5f3542",
                 "fontStyle": "bold"
             }
         },
         {
-            "scope": [ "entity.name.namespace.label.template.qsc" ],
+            "scope": [
+                "punctuation.definition.parameters.begin.qsc",
+                "punctuation.separator.comma.qsc",
+                "punctuation.definition.parameters.end.qsc"
+            ],
             "settings": {
                 "foreground": "#4a4a4a"
             }
         },
 
-        // Go To
+        // Router
         {
-            "scope": [ "keyword.control.router.symbol.qsc" ],
+            "scope": [ "keyword.control.loop.qsc" ],
             "settings": {
                 "foreground": "#472399",
                 "fontStyle": "bold"
             }
         },
         {
-            "scope": [ "keyword.control.router.main.qsc" ],
+            "scope": [ "keyword.control.flow.qsc" ],
             "settings": {
                 "foreground": "#854be9"
             }
@@ -105,37 +111,46 @@ Copy and paste the following code to your settings.json to apply our recommended
 
         // Command
         {
-            "scope": [ "entity.name.function.command.symbol.qsc" ],
+            "scope": [ "storage.type.function.qsc" ],
             "settings": {
                 "foreground": "#2e7d32",
                 "fontStyle": "bold"
             }
         },
         {
-            "scope": [ "entity.name.function.command.main.qsc" ],
+            "scope": [ "entity.name.function.qsc" ],
             "settings": {
                 "foreground": "#60a863",
                 "fontStyle": "bold"
             }
         },
 
+        // Condition
+        {
+            "scope": [ "keyword.control.conditional.qsc" ],
+            "settings": {
+                "foreground": "#008f9c",
+                "fontStyle": "bold"
+            }
+        },
+
         // Directive
         {
-            "scope": [ "entity.name.other.preprocessor.macro.directive.symbol.qsc" ],
+            "scope": [ "punctuation.definition.directive.qsc" ],
             "settings": {
                 "foreground": "#fbc02d",
                 "fontStyle": "bold"
             }
         },
         {
-            "scope": [ "entity.name.other.preprocessor.macro.directive.main.qsc" ],
+            "scope": [ "entity.name.other.preprocessor.macro.qsc" ],
             "settings": {
                 "foreground": "#ffe600",
                 "fontStyle": "bold"
             }
         },
         {
-            "scope": [ "entity.name.other.preprocessor.macro.directive.param.qsc" ],
+            "scope": [ "variable.other.global.qsc" ],
             "settings": {
                 "foreground": "#fff48f"
             }
@@ -148,13 +163,6 @@ Copy and paste the following code to your settings.json to apply our recommended
             "settings": {
                 "foreground": "#e0e0e0",
                 "fontStyle": "bold"
-            }
-        },
-        {
-            "scope": [ "comment.symbol.qsc" ],
-            "settings": {
-                "foreground": "#2D2D2D",
-                "fontStyle": "bold italic"
             }
         },
         {
@@ -181,22 +189,15 @@ Copy and paste the following code to your settings.json to apply our recommended
         },
 
         {
-            "scope": [ "variable.other.constant.tag.qsc" ],
+            "scope": [ "variable.other.constant.qsc" ],
             "settings": {
                 "foreground": "#be5a09"
             }
         },
         {
-            "scope": [ "variable.other.constant.qsc" ],
+            "scope": [ "variable.other.constant.text.qsc" ],
             "settings": {
                 "foreground": "#fa9d52"
-            }
-        },
-        {
-            "scope": [ "keyword.operator.condition.qsc" ],
-            "settings": {
-                "foreground": "#008f9c",
-                "fontStyle": "bold"
             }
         },
 
@@ -209,13 +210,17 @@ Copy and paste the following code to your settings.json to apply our recommended
             }
         },
         {
-            "scope": [ "keyword.operator.qsc" ],
+            "scope": [
+                "keyword.operator.qsc",
+                "punctuation.accessor",
+                "punctuation.terminator.qsc"
+            ],
             "settings": {
                 "foreground": "#BBBBBB"
             }
         },
         {
-            "scope": [ "keyword.operator.parentheses.qsc" ],
+            "scope": [ "meta.brace.round.qsc" ],
             "settings": {
                 "foreground": "#4a4a4a"
             }
@@ -239,7 +244,7 @@ Copy and paste the following code to your settings.json to apply our recommended
 
         // Variable
         {
-            "scope": [ "variable.other.property.qsc" ],
+            "scope": [ "variable.qsc" ],
             "settings": {
                 "foreground": "#99defd"
             }
@@ -251,7 +256,15 @@ Copy and paste the following code to your settings.json to apply our recommended
             "settings": {
                 "foreground": "#0059ff"
             }
-        }
+        },
+
+        // Enumerators
+        {
+            "scope": [ "variable.other.enummember.qsc" ],
+            "settings": {
+                "foreground": "#238dec"
+            }
+        },
     ]
 },
 ```
