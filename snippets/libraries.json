@@ -1,7 +1,7 @@
 {
     "Log Function": {
         "prefix": [ "$ ^Quillscript.Tools.Log" ],
-        "body": [ "$ ^Quillscript.Tools.Log '${1:Message}' ${2:null} ${3:Log}" ],
+        "body": [ "$ ^Quillscript.Tools.Log '${1:Hello}' ${2:null} ${3|Log,Success,Warning,Error|}" ],
         "description": [
             "Display a log message.",
             "   (Message: string)            message to display",
@@ -17,7 +17,7 @@
 
     "Print Function": {
         "prefix": [ "$ ^Quillscript.Tools.Print" ],
-        "body": [ "$ ^Quillscript.Tools.Print '${1:Message}'" ],
+        "body": [ "$ ^Quillscript.Tools.Print '${1:Hello}'" ],
         "description": [
             "Display a message",
             "   (Message: string)   message to display",
@@ -32,7 +32,7 @@
 
     "Success Function": {
         "prefix": [ "$ ^Quillscript.Tools.Success" ],
-        "body": [ "$ ^Quillscript.Tools.Success '${1:Message}'" ],
+        "body": [ "$ ^Quillscript.Tools.Success '${1:Hello}'" ],
         "description": [
             "Display a success message",
             "   (Message: string)   message to display",
@@ -47,7 +47,7 @@
 
     "Warning Function": {
         "prefix": [ "$ ^Quillscript.Tools.Warning" ],
-        "body": [ "$ ^Quillscript.Tools.Warning '${1:Message}'" ],
+        "body": [ "$ ^Quillscript.Tools.Warning '${1:Hello}'" ],
         "description": [
             "Display a warning message",
             "   (Message: string)   message to display",
@@ -62,7 +62,7 @@
 
     "Error Function": {
         "prefix": [ "$ ^Quillscript.Tools.Error" ],
-        "body": [ "$ ^Quillscript.Tools.Error '${1:Message}'" ],
+        "body": [ "$ ^Quillscript.Tools.Error '${1:Hello}'" ],
         "description": [
             "Display an error message",
             "   (Message: string)   message to display",

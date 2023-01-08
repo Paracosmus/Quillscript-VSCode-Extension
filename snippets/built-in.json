@@ -93,7 +93,7 @@
 
     "Delete": {
         "prefix": [ "$ Delete" ],
-        "body": [ "$ Delete" ],
+        "body": [ "$ Delete ${1:variable}" ],
         "description": [
             "Delete the given Quillscript variable.",
             "    (VariableName: string) Quillscript variable name",
@@ -106,7 +106,7 @@
 
     "Notify": {
         "prefix": [ "$ Notify" ],
-        "body": [ "$ Notify" ],
+        "body": [ "$ Notify ${1:message}" ],
         "description": [
             "Notify all registered observers in 'UQuillscriptSubsystem::OnNotified(FString)'.",
             "    (Message: string) message to pass to observers",
@@ -122,7 +122,23 @@
 
     "SetInputMode": {
         "prefix": [ "$ SetInputMode" ],
-        "body": [ "$ SetInputMode ${1:GameAndUI}" ],
+        "body": [ "$ SetInputMode ${1|Default,GameOnly,GameAndUI,UIOnly,Unchanged|}" ],
+        "description": [
+            "Change the game input mode.",
+            "    (InputMode: InputMode)                         [ Default, GameOnly, GameAndUI, UIOnly, Unchanged ]",
+            "    (MouseLockMode: MouseLockMode = LockOnCapture) [ DoNotLock, LockOnCapture, LockAlways, LockInFullscreen ]",
+            "    (HideCursorDuringCapture: bool = false)        Hide mouse cursor when mouse is captured.",
+            "    (WidgetToFocus: ref = null)                    Widget script reference to focus on.",
+            "",
+            "Example:",
+            "$ SetInputMode GameOnly",
+            "$ SetInputMode GameAndUI LockAlways",
+            "$ SetInputMode UIOnly LockOnCapture true {&MyWidget}",
+            "\n"
+        ]
+    }, "SetInputMode Params": {
+        "prefix": [ "$ SetInputMode params" ],
+        "body": [ "$ SetInputMode ${1|Default,GameOnly,GameAndUI,UIOnly,Unchanged|} ${2|DoNotLock,LockOnCapture,LockAlways,LockInFullscreen|} ${3|true,false|} {&${4:MyWidget}}" ],
         "description": [
             "Change the game input mode.",
             "    (InputMode: InputMode)                         [ Default, GameOnly, GameAndUI, UIOnly, Unchanged ]",
@@ -167,6 +183,31 @@
     "Use": {
         "prefix": [ "$ Use" ],
         "body": [ "$ Use ${1:path}" ],
+        "description": [
+            "Use the specified class or keyword for Dialog Box, Selection Box and Background Box.",
+            "",
+            "Keywords:",
+            "    Default        Reset to default all boxes classes.",
+            "    DialogBox      Reset to default Dialog Box class.",
+            "    SelectionBox   Reset to default Selection Box class.",
+            "    BackgroundBox  Reset to default Background Box class.",
+            "",
+            "Class Path:",
+            "    /Script/Quillscript.DialogBox",
+            "    /Game/MyFolder/MyDialogBox.MyDialogBox",
+            "",
+            "    (WidgetClassPath: string) widget class path, or keyword",
+            "",
+            "Example:",
+            "$ Use Default",
+            "$ Use DialogBox",
+            "$ Use /Script/Quillscript.DialogBox",
+            "$ Use /Game/MyFolder/MyDialogBox.MyDialogBox",
+            "\n"
+        ]
+    }, "Use Keyword": {
+        "prefix": [ "$ Use keyword" ],
+        "body": [ "$ Use ${1|Default,DialogBox,SelectionBox,BackgroundBox|}" ],
         "description": [
             "Use the specified class or keyword for Dialog Box, Selection Box and Background Box.",
             "",
@@ -243,7 +284,7 @@
 
     "Change Background": {
         "prefix": [ "$ Background" ],
-        "body": [ "$ Background {&/Game/${1}} ${2:fade} ${3:0.5}" ],
+        "body": [ "$ Background {&/Game/${1}} ${2|none,fade,dissolve,scrollup,shake|} ${3:0.5}" ],
         "description": [
             "Change the background image on screen with a transition animation.",
             "    (Image: ref)              script reference by path to the image file",
@@ -263,7 +304,7 @@
         "description": [
             "Change the background image on screen with a transition animation.",
             "    (Sound: ref)                  script reference by path to the image file",
-            "    (Channel: string = 'default') [ none, fade, dissolve, scrollup, shake ]",
+            "    (Channel: string = 'default') sound channel name",
             "    (Volume: float = 1)           volume multiplier",
             "    (FadeDuration: float = 0)     in seconds",
             "",
