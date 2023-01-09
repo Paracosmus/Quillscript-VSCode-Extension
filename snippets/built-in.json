@@ -122,10 +122,10 @@
 
     "SetInputMode": {
         "prefix": [ "$ SetInputMode" ],
-        "body": [ "$ SetInputMode ${1|Default,GameOnly,GameAndUI,UIOnly,Unchanged|}" ],
+        "body": [ "$ SetInputMode ${1|GameOnly,GameAndUI,UIOnly|}" ],
         "description": [
             "Change the game input mode.",
-            "    (InputMode: InputMode)                         [ Default, GameOnly, GameAndUI, UIOnly, Unchanged ]",
+            "    (InputMode: InputMode)                         [ GameOnly, GameAndUI, UIOnly ]",
             "    (MouseLockMode: MouseLockMode = LockOnCapture) [ DoNotLock, LockOnCapture, LockAlways, LockInFullscreen ]",
             "    (HideCursorDuringCapture: bool = false)        Hide mouse cursor when mouse is captured.",
             "    (WidgetToFocus: ref = null)                    Widget script reference to focus on.",
@@ -138,10 +138,10 @@
         ]
     }, "SetInputMode Params": {
         "prefix": [ "$ SetInputMode params" ],
-        "body": [ "$ SetInputMode ${1|Default,GameOnly,GameAndUI,UIOnly,Unchanged|} ${2|DoNotLock,LockOnCapture,LockAlways,LockInFullscreen|} ${3|true,false|} {&${4:MyWidget}}" ],
+        "body": [ "$ SetInputMode ${1|GameOnly,GameAndUI,UIOnly|} ${2|DoNotLock,LockOnCapture,LockAlways,LockInFullscreen|} ${3|true,false|} {&${4:MyWidget}}" ],
         "description": [
             "Change the game input mode.",
-            "    (InputMode: InputMode)                         [ Default, GameOnly, GameAndUI, UIOnly, Unchanged ]",
+            "    (InputMode: InputMode)                         [ GameOnly, GameAndUI, UIOnly ]",
             "    (MouseLockMode: MouseLockMode = LockOnCapture) [ DoNotLock, LockOnCapture, LockAlways, LockInFullscreen ]",
             "    (HideCursorDuringCapture: bool = false)        Hide mouse cursor when mouse is captured.",
             "    (WidgetToFocus: ref = null)                    Widget script reference to focus on.",
@@ -182,40 +182,15 @@
 
     "Use": {
         "prefix": [ "$ Use" ],
-        "body": [ "$ Use ${1:path}" ],
+        "body": [ "$ Use ${1|/Game/,/Script/,Default,DialogBox,SelectionBox,BackgroundBox|}" ],
         "description": [
             "Use the specified class or keyword for Dialog Box, Selection Box and Background Box.",
             "",
             "Keywords:",
-            "    Default        Reset to default all boxes classes.",
-            "    DialogBox      Reset to default Dialog Box class.",
-            "    SelectionBox   Reset to default Selection Box class.",
-            "    BackgroundBox  Reset to default Background Box class.",
-            "",
-            "Class Path:",
-            "    /Script/Quillscript.DialogBox",
-            "    /Game/MyFolder/MyDialogBox.MyDialogBox",
-            "",
-            "    (WidgetClassPath: string) widget class path, or keyword",
-            "",
-            "Example:",
-            "$ Use Default",
-            "$ Use DialogBox",
-            "$ Use /Script/Quillscript.DialogBox",
-            "$ Use /Game/MyFolder/MyDialogBox.MyDialogBox",
-            "\n"
-        ]
-    }, "Use Keyword": {
-        "prefix": [ "$ Use keyword" ],
-        "body": [ "$ Use ${1|Default,DialogBox,SelectionBox,BackgroundBox|}" ],
-        "description": [
-            "Use the specified class or keyword for Dialog Box, Selection Box and Background Box.",
-            "",
-            "Keywords:",
-            "    Default        Reset to default all boxes classes.",
-            "    DialogBox      Reset to default Dialog Box class.",
-            "    SelectionBox   Reset to default Selection Box class.",
-            "    BackgroundBox  Reset to default Background Box class.",
+            "    Default        Reset all boxes classes to default.",
+            "    DialogBox      Reset Dialog Box class to default.",
+            "    SelectionBox   Reset Selection Box class to default.",
+            "    BackgroundBox  Reset Background Box class to default.",
             "",
             "Class Path:",
             "    /Script/Quillscript.DialogBox",
@@ -287,7 +262,7 @@
         "body": [ "$ Background {&/Game/${1}} ${2|none,fade,dissolve,scrollup,shake|} ${3:0.5}" ],
         "description": [
             "Change the background image on screen with a transition animation.",
-            "    (Image: ref)              script reference by path to the image file",
+            "    (Image: ref)              script reference by path to the image asset",
             "    (Transition: string = '') [ none, fade, dissolve, scrollup, shake ]",
             "    (Duration: float = 0.5)   in seconds",
             "",
@@ -303,7 +278,7 @@
         "body": [ "$ PlaySound {&/Game/${1}} ${2:channel}" ],
         "description": [
             "Change the background image on screen with a transition animation.",
-            "    (Sound: ref)                  script reference by path to the image file",
+            "    (Sound: ref)                  script reference by path to the sound asset",
             "    (Channel: string = 'default') sound channel name",
             "    (Volume: float = 1)           volume multiplier",
             "    (FadeDuration: float = 0)     in seconds",
