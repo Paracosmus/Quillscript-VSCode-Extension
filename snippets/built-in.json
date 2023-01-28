@@ -323,6 +323,22 @@
 
 
 
+    "Roll": {
+        "prefix": [ "$ Roll" ],
+        "body": [ "$ Roll ${1:6}" ],
+        "description": [
+            "Randomly select an integer number between 1 and the given number.",
+            "    (DiceSides: Integer) number of sides of the dice",
+            "",
+            "Example:",
+            "$ Roll 6",
+            "$ Roll 20",
+            "\n"
+        ]
+    },
+
+
+
     "Get Script Id": {
         "prefix": [ "&Script.Id" ],
         "body": [ "&Script.Id" ],
