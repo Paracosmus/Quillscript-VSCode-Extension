@@ -1,6 +1,7 @@
 {
     "name": "quillscript-language",
     "icon": "icon.png",
+    "categories": [ "Programming Languages" ],
     "publisher": "BrunoCaxito",
     "displayName": "Quillscript Language",
     "description": "Syntax highlighting and support for Quillscript Language",
@@ -9,35 +10,48 @@
     "homepage": "https://quillscript.ink/",
 
     "author": {
-		"email": "bcaxito@gmail.com",
+		"email": "support@quillscript.ink",
 		"name": "Bruno Caxito",
 		"url": "https://github.com/BrunoCaxito"
 	},
 
     "engines": {
-        "vscode": "^1.73.1"
+        "vscode": "^1.75.0"
     },
 
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/BrunoCaxito/Quillscript-VSC-Extension"
+		"url": "https://github.com/BrunoCaxito/Quillscript-VSCode-Extension"
 	},
 
 	"galleryBanner": {
 		"color": "#e1bee7"
 	},
 
-    "categories": [
-        "Programming Languages",
-        "Snippets"
-    ],
+    "main": "./out/extension.js",
 
     "contributes": {
+        "commands": [
+            {
+                "command": "quillscript.check",
+                "title": "Quillscript Check"
+            }
+        ],
+
+        "keybindings": [
+            {
+                "command": "quillscript.check",
+                "key": "ctrl+shift+h",
+                "mac": "cmd+shift+h",
+                "when": "editorTextFocus"
+            }
+        ],
+
         "languages": [{
             "id": "quillscript",
             "aliases": [ "Quillscript", "quillscript", "QSC", "qsc" ],
             "extensions": [ ".qsc" ],
-            "configuration": "./language-configuration.json"
+            "configuration": "./syntaxes/language-configuration.json"
         }],
 
         "grammars": [{
@@ -46,10 +60,58 @@
             "path": "./syntaxes/quillscript.tmLanguage.json"
         }],
 
+        "viewsContainers": {
+            "activitybar": [
+                {
+                    "id": "quillscript",
+                    "title": "Quillscript",
+                    "icon": "$(comments-view-icon)"
+                }
+            ]
+        },
+
+        "views": {
+            "quillscript": [
+                {
+                    "id": "quillscript-scripts",
+                    "name": "Scripts",
+                    "type": "webview"
+                },
+
+                {
+                    "id": "quillscript-outline",
+                    "name": "Outline"
+                }
+            ]
+        },
+
         "snippets": [
             { "language": "quillscript", "path": "./snippets/language.json" },
             { "language": "quillscript", "path": "./snippets/built-in.json" },
             { "language": "quillscript", "path": "./snippets/libraries.json" }
         ]
+    },
+
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile && npm run lint",
+        "lint": "eslint src --ext ts",
+        "test": "node ./out/test/runTest.js"
+    },
+
+    "devDependencies": {
+        "@types/vscode": "^1.74.0",
+        "@types/glob": "^8.0.0",
+        "@types/mocha": "^10.0.0",
+        "@types/node": "16.x",
+        "@typescript-eslint/eslint-plugin": "^5.42.0",
+        "@typescript-eslint/parser": "^5.42.0",
+        "eslint": "^8.26.0",
+        "glob": "^8.0.3",
+        "mocha": "^10.1.0",
+        "typescript": "^4.8.4",
+        "@vscode/test-electron": "^2.2.0"
     }
 }

@@ -275,9 +275,9 @@
 
     "Play Sound": {
         "prefix": [ "$ PlaySound" ],
-        "body": [ "$ PlaySound {&/Game/${1}} ${2:channel}" ],
+        "body": [ "$ PlaySound {&/Game/${1}}" ],
         "description": [
-            "Change the background image on screen with a transition animation.",
+            "Play a sound asset.",
             "    (Sound: ref)                  script reference by path to the sound asset",
             "    (Channel: string = 'default') sound channel name",
             "    (Volume: float = 1)           volume multiplier",
@@ -291,11 +291,129 @@
         ]
     },
 
+    "Play Sound Params": {
+        "prefix": [ "$ PlaySound params" ],
+        "body": [ "$ PlaySound {&/Game/${1}} ${2:channel} ${3:1} ${4:0}" ],
+        "description": [
+            "Play a sound asset.",
+            "    (Sound: ref)                  script reference by path to the sound asset",
+            "    (Channel: string = 'default') sound channel name",
+            "    (Volume: float = 1)           volume multiplier",
+            "    (FadeDuration: float = 0)     in seconds",
+            "",
+            "Example:",
+            "$ PlaySound {&/Game/Voices/Line33.Line33}",
+            "$ PlaySound {&/Game/SFXs/Explosion.Explosion} SFX 2",
+            "$ PlaySound {&/Game/Musics/Piano.Piano} BackgroundMusic 0.5 0.5",
+            "\n"
+        ]
+    },
+
+    "Play Voice": {
+        "prefix": [ "$ Voice" ],
+        "body": [ "$ Voice {&/Game/${1}}" ],
+        "description": [
+            "Play a sound asset.",
+            "Same as: PlaySound {&/Path} voice",
+            "    (Sound: ref)                  script reference by path to the sound asset",
+            "    (Volume: float = 1)           volume multiplier",
+            "",
+            "Example:",
+            "$ Voice {&/Game/Voices/Line33.Line33}",
+            "$ Voice {&/Game/Character/Greetings.Greetings} 1",
+            "\n"
+        ]
+    },
+
+    "Play Voice Params": {
+        "prefix": [ "$ Voice params" ],
+        "body": [ "$ Voice {&/Game/${1}} ${2:channel} ${3:1} ${4:0}" ],
+        "description": [
+            "Play a sound asset.",
+            "Same as: PlaySound {&/Path} voice volume fadeDuration",
+            "    (Sound: ref)                  script reference by path to the sound asset",
+            "    (Volume: float = 1)           volume multiplier",
+            "",
+            "Example:",
+            "$ Voice {&/Game/Voices/Line33.Line33}",
+            "$ Voice {&/Game/Character/Greetings.Greetings} 1",
+            "\n"
+        ]
+    },
+
+    "Play Music": {
+        "prefix": [ "$ Music" ],
+        "body": [ "$ Music {&/Game/${1}}" ],
+        "description": [
+            "Play a sound asset.",
+            "Same as: PlaySound {&/Path} music",
+            "    (Sound: ref)                  script reference by path to the sound asset",
+            "    (Volume: float = 1)           volume multiplier",
+            "    (FadeDuration: float = 0)     in seconds",
+            "",
+            "Example:",
+            "$ Music {&/Game/Musics/Piano.Piano}",
+            "$ Music {&/Game/Environment/Wind.Wind} 0.75",
+            "$ Music {&/Game/Environment/Birds.Birds} 0.5 1",
+            "\n"
+        ]
+    },
+
+    "Play Music Params": {
+        "prefix": [ "$ Music params" ],
+        "body": [ "$ Music {&/Game/${1}} ${2:channel} ${3:1} ${4:0}" ],
+        "description": [
+            "Play a sound asset.",
+            "Same as: PlaySound {&/Path} music volume fadeDuration",
+            "    (Sound: ref)                  script reference by path to the sound asset",
+            "    (Volume: float = 1)           volume multiplier",
+            "    (FadeDuration: float = 0)     in seconds",
+            "",
+            "Example:",
+            "$ Music {&/Game/Musics/Piano.Piano}",
+            "$ Music {&/Game/Environment/Wind.Wind} 0.75",
+            "$ Music {&/Game/Environment/Birds.Birds} 0.5 1",
+            "\n"
+        ]
+    },
+
+    "Play Sound Effect": {
+        "prefix": [ "$ SFX" ],
+        "body": [ "$ SFX {&/Game/${1}}" ],
+        "description": [
+            "Play a sound asset.",
+            "Same as: PlaySound sfx",
+            "    (Sound: ref)                  script reference by path to the sound asset",
+            "    (Volume: float = 1)           volume multiplier",
+            "",
+            "Example:",
+            "$ SFX {&/Game/Car/Engine.Engine}",
+            "$ SFX {&/Game/SFXs/Explosion.Explosion} 2",
+            "\n"
+        ]
+    },
+
+    "Play Sound Effect Params": {
+        "prefix": [ "$ SFX params" ],
+        "body": [ "$ SFX {&/Game/${1}} ${2:channel} ${3:1} ${4:0}" ],
+        "description": [
+            "Play a sound asset.",
+            "Same as: PlaySound {&/Path} sfx volume",
+            "    (Sound: ref)                  script reference by path to the sound asset",
+            "    (Volume: float = 1)           volume multiplier",
+            "",
+            "Example:",
+            "$ SFX {&/Game/Car/Engine.Engine}",
+            "$ SFX {&/Game/SFXs/Explosion.Explosion} 2",
+            "\n"
+        ]
+    },
+
     "Stop Sound": {
         "prefix": [ "$ StopSound" ],
         "body": [ "$ StopSound ${1:channel}" ],
         "description": [
-            "Change the background image on screen with a transition animation.",
+            "Stop the sound asset playing.",
             "    (Channel: string = 'default') sound channel name",
             "    (FadeDuration: float = 0)     in seconds",
             "",
@@ -311,7 +429,7 @@
         "prefix": [ "$ StopAllSounds" ],
         "body": [ "$ StopAllSounds" ],
         "description": [
-            "Change the background image on screen with a transition animation.",
+            "Stop all sound assets from all channels.",
             "    (FadeDuration: float = 0) in seconds",
             "",
             "Example:",

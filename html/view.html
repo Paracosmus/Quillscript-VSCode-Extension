@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #test {
+            color: pink;
+        }
+    </style>
+</head>
+<body>
+    <!-- Add your HTML content here -->
+    <h1 id="test">Quillscript</h1>
+    <button id="myButton" onclick="change()">Click me</button>
+    <script>
+        const vscode = acquireVsCodeApi();
+
+        function change() {
+            vscode.postMessage({
+                command: "buttonClicked"
+            });
+        };
+    </script>
+</body>
+</html>
