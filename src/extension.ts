@@ -40,7 +40,32 @@ export function deactivate() {
 }
 
 
+/*
+        "viewsContainers": {
+            "activitybar": [
+                {
+                    "id": "quillscript",
+                    "title": "Quillscript",
+                    "icon": "$(comments-view-icon)"
+                }
+            ]
+        },
 
+        "views": {
+            "quillscript": [
+                {
+                    "id": "quillscript-scripts",
+                    "name": "Scripts",
+                    "type": "webview"
+                },
+
+                {
+                    "id": "quillscript-outline",
+                    "name": "Outline"
+                }
+            ]
+        },
+*/
 
 
 

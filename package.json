@@ -5,7 +5,7 @@
     "publisher": "BrunoCaxito",
     "displayName": "Quillscript Language",
     "description": "Syntax highlighting and support for Quillscript Language",
-    "version": "2.1.0",
+    "version": "2.1.1",
     "license": "MIT",
     "homepage": "https://quillscript.ink/",
 
@@ -29,6 +29,10 @@
 	},
 
     "main": "./out/extension.js",
+
+    "activationEvents": [
+        "onCommand:quillscript.check"
+    ],
 
     "contributes": {
         "commands": [
@@ -59,31 +63,6 @@
             "scopeName": "source.qsc",
             "path": "./syntaxes/quillscript.tmLanguage.json"
         }],
-
-        "viewsContainers": {
-            "activitybar": [
-                {
-                    "id": "quillscript",
-                    "title": "Quillscript",
-                    "icon": "$(comments-view-icon)"
-                }
-            ]
-        },
-
-        "views": {
-            "quillscript": [
-                {
-                    "id": "quillscript-scripts",
-                    "name": "Scripts",
-                    "type": "webview"
-                },
-
-                {
-                    "id": "quillscript-outline",
-                    "name": "Outline"
-                }
-            ]
-        },
 
         "snippets": [
             { "language": "quillscript", "path": "./snippets/language.json" },
