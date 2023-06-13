@@ -16,14 +16,14 @@ export function activate(context: vscode.ExtensionContext) {
 
 
 	// Register tree view provider.
-	vscode.window.registerTreeDataProvider(
-		'quillscript-outline',
-		new NodeDependenciesProvider(rootPath)
-	);
+	// vscode.window.registerTreeDataProvider(
+	// 	'quillscript-outline',
+	// 	new NodeDependenciesProvider(rootPath)
+	// );
 
-	vscode.window.createTreeView('quillscript-outline', {
-		treeDataProvider: new NodeDependenciesProvider(rootPath)
-	});
+	// vscode.window.createTreeView('quillscript-outline', {
+	// 	treeDataProvider: new NodeDependenciesProvider(rootPath)
+	// });
 
 
 	// Register commands.

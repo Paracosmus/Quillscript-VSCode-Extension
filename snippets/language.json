@@ -87,22 +87,68 @@
 
 
 
+    "Directive Start": {
+        "prefix": [ "~ start" ],
+        "body": [ "~ start" ],
+        "description": [
+            "Defines a different starting point for this script."
+        ]
+    },
+
     "Directive Define": {
         "prefix": [ "~ define" ],
-        "body": [ "~ define " ],
-        "description": "."
+        "body": [ "~ define ${1:definition} ${2:expression}" ],
+        "description": [
+            "Replaces all occurrences of a pre-defined string during parsing time.",
+            "   (definition: string) string to search and replace",
+            "   (expression: string) string to replace with",
+            "",
+            "Example:",
+            "~ replace name Bob",
+            "~ replace condition ? {height} < 1.5",
+            "\n"
+        ]
     },
 
     "Directive Replace": {
         "prefix": [ "~ replace" ],
-        "body": [ "~ replace " ],
-        "description": "."
+        "body": [ "~ replace ${1:search_string} ${2:replacement_string}" ],
+        "description": [
+            "Replaces all occurrences of a pre-defined parameter before the script starts.",
+            "   (search_string: string)      string to search and replace",
+            "   (replacement_string: string) string to replace with",
+            "",
+            "Example:",
+            "~ replace name Bob",
+            "~ replace condition {height} < 1.5",
+            "\n"
+        ]
     },
 
-    "Directive Start": {
-        "prefix": [ "~ start" ],
-        "body": [ "~ start" ],
-        "description": "."
+    "Directive Include": {
+        "prefix": [ "~ include" ],
+        "body": [ "~ include ${1:script_path}" ],
+        "description": [
+            "Inserts the data of a given Quillscript Script asset, at this position.",
+            "   (script_path: string) included script path",
+            "",
+            "Example:",
+            "~ include /Script/Quillscript.QuillscriptAsset'/Game/Include.Include'",
+            "\n"
+        ]
+    },
+
+    "Directive Import": {
+        "prefix": [ "~ import" ],
+        "body": [ "~ import ${1:script_path}" ],
+        "description": [
+            "Inserts the data of a given Quillscript Script asset, at the start of this script.",
+            "   (script_path: string) imported script path",
+            "",
+            "Example:",
+            "~ import /Script/Quillscript.QuillscriptAsset'/Game/Import.Import'",
+            "\n"
+        ]
     },
 
 
