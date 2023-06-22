@@ -61,12 +61,27 @@
         ]
     },
 
-    "Travel": {
+    "Travel by Id": {
         "prefix": [ "$ Travel" ],
+        "body": [ "$ Travel @${1}" ],
+        "description": [
+            "End current Script and play a new script from start or from label.",
+            "    (TargetScript: string        target script id",
+            "    (StartingLabel: string = '') starting label name",
+            "",
+            "Example:",
+            "$ Travel @Intro",
+            "$ Travel @Act1 Chapter2",
+            "\n"
+        ]
+    },
+
+    "Travel by Path": {
+        "prefix": [ "$ Travel path" ],
         "body": [ "$ Travel {&/Game/${1}} ${2:LabelName}" ],
         "description": [
-            "Play new script from start or from label, and end current script.",
-            "    (TargetScript: ref           script reference",
+            "End current Script and play a new script from start or from label.",
+            "    (TargetScript: ref           target script reference",
             "    (StartingLabel: string = '') starting label name",
             "",
             "Example:",
