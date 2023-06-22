@@ -61,6 +61,22 @@
         ]
     },
 
+    "Timer": {
+        "prefix": [ "$ Timer" ],
+        "body": [ "$ Timer ${1:5} '${2:Print var}'" ],
+        "description": [
+            "Execute the given command after the given time.",
+            "    (Duration: float)      seconds to wait",
+            "    (MethodName: string)   A command statement to execute when the timer is over",
+            "    (bAsync: bool = false) If false, the story flow pauses until the timer is over",
+            "",
+            "Example:",
+            "$ Timer 5 \"Print '5 seconds passed'\"",
+            "$ Timer 1.5 \"$GameInstance 36\" true",
+            "\n"
+        ]
+    },
+
     "Travel by Id": {
         "prefix": [ "$ Travel" ],
         "body": [ "$ Travel @${1}" ],
@@ -78,7 +94,7 @@
 
     "Travel by Path": {
         "prefix": [ "$ Travel path" ],
-        "body": [ "$ Travel {&/Game/${1}} ${2:LabelName}" ],
+        "body": [ "$ Travel {&/Game/${1}}" ],
         "description": [
             "End current Script and play a new script from start or from label.",
             "    (TargetScript: ref           target script reference",
