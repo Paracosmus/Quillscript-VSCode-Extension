@@ -304,6 +304,22 @@
         ]
     },
 
+    "Change Background Alias": {
+        "prefix": [ "$ Bg" ],
+        "body": [ "$ Bg {&/Game/${1}} ${2|none,fade,dissolve,scrollup,shake|} ${3:0.5}" ],
+        "description": [
+            "Change the background image on screen with a transition animation.",
+            "    (Image: ref)              script reference by path to the image asset",
+            "    (Transition: string = '') [ none, fade, dissolve, scrollup, shake ]",
+            "    (Duration: float = 0.5)   in seconds",
+            "",
+            "Example:",
+            "$ Bg {&/Game/Scenarios/School.School}",
+            "$ Bg {&MyRef} dissolve 1",
+            "\n"
+        ]
+    },
+
     "Play Sound": {
         "prefix": [ "$ PlaySound" ],
         "body": [ "$ PlaySound {&/Game/${1}}" ],
