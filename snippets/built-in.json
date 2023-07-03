@@ -486,6 +486,22 @@
         ]
     },
 
+    "Play Animation": {
+        "prefix": [ "$ PlayAnimation" ],
+        "body": [ "$ PlayAnimation {&${1:SkeletalMeshComponent}} {&/Game/${2:AnimationReference}} ${3|true,false|}" ],
+        "description": [
+            "Stop all sound assets from all channels.",
+            "    (SkeletalMeshComponent: ref) Target Static Mesh component",
+            "    (AnimationReference: ref)    Animation asset to play",
+            "    (bLoop: bool = false)        Loop animation",
+            "",
+            "Example:",
+            "$ PlayAnimation {&Mesh} {&/Game/Animations/Idle.Idle}",
+            "$ PlayAnimation {&Mesh} {&/Game/Animations/Running.Running} true",
+            "\n"
+        ]
+    },
+
 
 
     "Roll": {
