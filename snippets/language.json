@@ -127,10 +127,10 @@
 
     "Directive Include": {
         "prefix": [ "~ include" ],
-        "body": [ "~ include ${1:script_path}" ],
+        "body": [ "~ include @${1:script}" ],
         "description": [
             "Inserts the data of a given Quillscript Script asset, at this position.",
-            "   (script_path: string) included script path",
+            "   (script: string) included script id or path",
             "",
             "Example:",
             "~ include /Script/Quillscript.QuillscriptAsset'/Game/Include.Include'",
@@ -140,13 +140,27 @@
 
     "Directive Import": {
         "prefix": [ "~ import" ],
-        "body": [ "~ import ${1:script_path}" ],
+        "body": [ "~ import @${1:script}" ],
         "description": [
             "Inserts the data of a given Quillscript Script asset, at the start of this script.",
-            "   (script_path: string) imported script path",
+            "   (script: string) imported script id or path",
             "",
             "Example:",
             "~ import /Script/Quillscript.QuillscriptAsset'/Game/Import.Import'",
+            "\n"
+        ]
+    },
+
+    "Directive Inject": {
+        "prefix": [ "~ inject" ],
+        "body": [ "~ inject @${1:script} ${2:labelName}" ],
+        "description": [
+            "Inserts the content of a given label from an external script, at this point.",
+            "   (script: string)    source script id or path",
+            "   (labelName: string) target label name",
+            "",
+            "Example:",
+            "~ inject /Script/Quillscript.QuillscriptAsset'/Game/Inject.Inject' labelName",
             "\n"
         ]
     },
