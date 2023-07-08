@@ -35,22 +35,6 @@
     ],
 
     "contributes": {
-        "commands": [
-            {
-                "command": "quillscript.check",
-                "title": "Quillscript Check"
-            }
-        ],
-
-        "keybindings": [
-            {
-                "command": "quillscript.check",
-                "key": "ctrl+shift+h",
-                "mac": "cmd+shift+h",
-                "when": "editorTextFocus"
-            }
-        ],
-
         "languages": [{
             "id": "quillscript",
             "aliases": [ "Quillscript", "quillscript", "QSC", "qsc" ],
@@ -68,7 +52,43 @@
             { "language": "quillscript", "path": "./snippets/language.json" },
             { "language": "quillscript", "path": "./snippets/built-in.json" },
             { "language": "quillscript", "path": "./snippets/libraries.json" }
-        ]
+        ],
+
+        "commands": [
+            {
+                "command": "quillscript.check",
+                "title": "Quillscript Check"
+            }
+        ],
+
+        "keybindings": [
+            {
+                "command": "quillscript.check",
+                "key": "ctrl+shift+h",
+                "mac": "cmd+shift+h",
+                "when": "editorTextFocus"
+            }
+        ],
+
+        "viewsContainers": {
+            "activitybar": [
+                {
+                    "id": "quillscript",
+                    "title": "Quillscript",
+                    "icon": "$(comments-view-icon)"
+                }
+            ]
+        },
+
+        "views": {
+            "quillscript": [
+                {
+                    "id": "quillscript-outline",
+                    "name": "Outline",
+                    "type": "tree"
+                }
+            ]
+        }
     },
 
     "scripts": {

@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 import { MainWebviewViewProvider } from './providers/MainWebviewViewProvider';
-import { NodeDependenciesProvider } from './providers/NodeDependenciesProvider';
+import { ScriptsTreeDataProvider } from './providers/ScriptsTreeDataProvider';
 
 
 export function activate(context: vscode.ExtensionContext) {
@@ -8,27 +8,20 @@ export function activate(context: vscode.ExtensionContext) {
 	const rootPath =
 		vscode.workspace.workspaceFolders && vscode.workspace.workspaceFolders.length > 0
 			? vscode.workspace.workspaceFolders[0].uri.fsPath
-			: undefined;
+			: "";
 
 
 	// Register webview view provider.
-	vscode.window.registerWebviewViewProvider('quillscript-scripts', new MainWebviewViewProvider(rootPath));
+	// vscode.window.registerWebviewViewProvider('quillscript-scripts', new MainWebviewViewProvider(rootPath));
 
 
 	// Register tree view provider.
-	// vscode.window.registerTreeDataProvider(
-	// 	'quillscript-outline',
-	// 	new NodeDependenciesProvider(rootPath)
-	// );
-
-	// vscode.window.createTreeView('quillscript-outline', {
-	// 	treeDataProvider: new NodeDependenciesProvider(rootPath)
-	// });
+	vscode.window.registerTreeDataProvider('quillscript-outline', new ScriptsTreeDataProvider(rootPath));
 
 
 	// Register commands.
 	let disposable = vscode.commands.registerCommand('quillscript.check', () => {
-		vscode.window.showInformationMessage('Hello World from Quillscript!');
+		vscode.window.showInformationMessage('Quillscript is running');
 	});
 
 	context.subscriptions.push(disposable);
@@ -41,30 +34,11 @@ export function deactivate() {
 
 
 /*
-        "viewsContainers": {
-            "activitybar": [
-                {
-                    "id": "quillscript",
-                    "title": "Quillscript",
-                    "icon": "$(comments-view-icon)"
-                }
-            ]
-        },
-
-        "views": {
-            "quillscript": [
-                {
-                    "id": "quillscript-scripts",
-                    "name": "Scripts",
-                    "type": "webview"
-                },
-
-                {
-                    "id": "quillscript-outline",
-                    "name": "Outline"
-                }
-            ]
-        },
+{
+    "id": "quillscript-scripts",
+    "name": "Scripts",
+    "type": "webview"
+},
 */
 
 
