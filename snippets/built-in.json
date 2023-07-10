@@ -63,7 +63,7 @@
         "prefix": [ "$ Wait" ],
         "body": [ "$ Wait ${1:0.2}" ],
         "description": [
-            "Stop script for few seconds.",
+            "Stop script for a few seconds.",
             "    (Duration: float = 0.2) in seconds",
             "",
             "Example:",
@@ -84,7 +84,7 @@
             "",
             "Example:",
             "$ Timer 5 \"^Quillscript.Tools.Print '5 seconds passed'\"",
-            "$ Timer 1.5 \"$GameInstance 36\" true",
+            "$ Timer 1.5 \"&GameInstance.MyFunction 36\" true",
             "\n"
         ]
     },
