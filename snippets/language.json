@@ -165,6 +165,20 @@
         ]
     },
 
+    "Directive Checkpoint": {
+        "prefix": [ "~ checkpoint" ],
+        "body": [ "~ checkpoint ${1}| ? ${2}" ],
+        "description": [
+            "Interrupts script execution until the condition is met.",
+            "   (delay: string)     time between condition checks",
+            "",
+            "Example:",
+            "~ checkpoint | ? {myVar} == on",
+            "~ checkpoint 0.5 | ? {number} > 5 AND {number} <= 10",
+            "\n"
+        ]
+    },
+
 
 
     "Tag Once": {

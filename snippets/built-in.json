@@ -538,12 +538,6 @@
         "description": [ "Store script's 'Id' on {$Id}.\n\n" ]
     },
 
-    "Get Script Original Path": {
-        "prefix": [ "&Script.OriginalPath" ],
-        "body": [ "&Script.OriginalPath" ],
-        "description": [ "Store script's 'Original Path' on {$OriginalPath}.\n\n" ]
-    },
-
     "Set Script Target Object": {
         "prefix": [ "&Script.SetTarget" ],
         "body": [ "&Script.SetTarget {&${1}}" ],

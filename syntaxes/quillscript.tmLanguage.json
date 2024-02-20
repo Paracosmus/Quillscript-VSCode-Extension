@@ -127,24 +127,41 @@
 		},
 
 		"directive": {
-			"match": "[\\s]*(~)[\\s]*?(.*?(?=(\\||\\/\\/|\\n)))",
+			"match": "[\\s]*(~)[\\s](\\w+)*?(.*?(?=(\\||\\/\\/|\\n)))",
 
 			"captures": {
 				"1": { "name": "punctuation.definition.directive.qsc" },
-				"2": {
+
+				"3": {
 					"name": "entity.name.other.preprocessor.macro.qsc",
 
 					"patterns": [
-
 						{
-							"name": "variable.other.global.qsc df",
-							"match": "\\s.*",
+							"match": "(.*?)\\s(.*)",
 
 							"captures": {
-								"0": {
+								"1": {
 									"patterns": [
+										{
+											"name": "punctuation.accessor.qsc",
+											"match": "\\."
+										},
+
 										{ "include": "#variable" },
 										{ "include": "#definition" }
+									]
+								},
+
+								"2": {
+									"name": "string.qsc",
+
+									"patterns": [
+										{ "include": "#variable" },
+										{ "include": "#definition" },
+										{ "include": "#richtext" },
+										{ "include": "#number" },
+										{ "include": "#keyword" },
+										{ "include": "#enum" }
 									]
 								}
 							}
