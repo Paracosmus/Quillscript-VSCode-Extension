@@ -225,12 +225,12 @@
 
     "Use": {
         "prefix": [ "$ Use" ],
-        "body": [ "$ Use ${1|/Game/,/Script/,Default,DialogBox,SelectionBox,BackgroundBox|}" ],
+        "body": [ "$ Use ${1|/Game/,/Script/,Defaults,DialogBox,SelectionBox,BackgroundBox|}" ],
         "description": [
             "Use the specified class or keyword for Dialog Box, Selection Box and Background Box.",
             "",
             "Keywords:",
-            "    Default        Reset all boxes classes to default.",
+            "    Defaults       Reset all boxes classes to defaults.",
             "    DialogBox      Reset Dialog Box class to default.",
             "    SelectionBox   Reset Selection Box class to default.",
             "    BackgroundBox  Reset Background Box class to default.",
@@ -242,7 +242,7 @@
             "    (WidgetClassPath: string) widget class path, or keyword",
             "",
             "Example:",
-            "$ Use Default",
+            "$ Use Defaults",
             "$ Use DialogBox",
             "$ Use /Script/Quillscript.DialogBox",
             "$ Use /Game/MyFolder/MyDialogBox.MyDialogBox",
