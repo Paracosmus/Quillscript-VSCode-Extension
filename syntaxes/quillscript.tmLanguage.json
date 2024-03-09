@@ -404,7 +404,7 @@
 
 		"enum": {
 			"name": "variable.other.enummember.qsc",
-			"match": "\\b(Log|Success|Warning|Error)|(Default|Defaults|GameOnly|GameAndUI|UIOnly|Unchanged)|(DoNotLock|LockOnCapture|LockAlways|LockInFullscreen)\\b"
+			"match": "\\b(Log|Success|Warning|Error)|(Defaults|Default|GameOnly|GameAndUI|UIOnly|Unchanged)|(DoNotLock|LockOnCapture|LockAlways|LockInFullscreen)\\b"
 		}
 	}
 }
