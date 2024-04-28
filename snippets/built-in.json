@@ -119,6 +119,36 @@
         ]
     },
 
+    "Travel Pass by Id": {
+        "prefix": [ "$ TravelPass" ],
+        "body": [ "$ TravelPass @${1}" ],
+        "description": [
+            "End current Script and play a new script from start or from label, keeping current settings.",
+            "    (TargetScript: string        target script id",
+            "    (StartingLabel: string = '') starting label name",
+            "",
+            "Example:",
+            "$ TravelPass @Intro",
+            "$ TravelPass @Act1 Chapter2",
+            "\n"
+        ]
+    },
+
+    "Travel Pass by Path": {
+        "prefix": [ "$ TravelPass path" ],
+        "body": [ "$ TravelPass {&/Game/${1}}" ],
+        "description": [
+            "End current Script and play a new script from start or from label, keeping current settings.",
+            "    (TargetScript: ref           target script reference",
+            "    (StartingLabel: string = '') starting label name",
+            "",
+            "Example:",
+            "$ TravelPass {&/Game/Scripts/Intro.Intro}",
+            "$ TravelPass {&/Plugin/Screenplay/Act1.Act1} Chapter2",
+            "\n"
+        ]
+    },
+
 
 
     "Print": {
@@ -328,6 +358,25 @@
             "Example:",
             "$ Bg {&/Game/Scenarios/School.School}",
             "$ Bg {&MyRef} dissolve 1",
+            "\n"
+        ]
+    },
+
+    "Sprite": {
+        "prefix": [ "$ Sprite" ],
+        "body": [ "$ Sprite ${1}" ],
+        "description": [
+            "Create a Sprite Box widget and a script reference of the same name for it.",
+            "    (Name: name)                              name and script reference name for this sprite",
+            "    (Class: ref[sub class of SpriteBox] = '') script reference by path to the Sprite Box class to use for this sprite",
+            "",
+            "Example:",
+            "$ Sprite Alice",
+            "$ &Alice.Animate fade 0 1 Forward 1 false",
+            "$ &Alice.Show {&/Game/Sprites/Alice.Alice}",
+            "",
+            "$ Sprite Bob {&/Game/Widgets/MySpriteBox.MySpriteBox_C}",
+            "$ &Bob.Show {&/Game/Sprites/MyFlipbook.MyFlipbook}",
             "\n"
         ]
     },
