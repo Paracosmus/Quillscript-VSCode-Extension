@@ -285,6 +285,7 @@
 
 									"patterns": [
 										{ "include": "#variable" },
+										{ "include": "#parameter" },
 										{ "include": "#definition" },
 										{ "include": "#richtext" },
 										{ "include": "#operator" },
@@ -323,6 +324,7 @@
 														},
 
 														{ "include": "#variable" },
+														{ "include": "#parameter" },
 														{ "include": "#definition" }
 													]
 												},
@@ -332,6 +334,7 @@
 
 													"patterns": [
 														{ "include": "#variable" },
+														{ "include": "#parameter" },
 														{ "include": "#definition" },
 														{ "include": "#richtext" },
 														{ "include": "#number" },
@@ -343,6 +346,7 @@
 										},
 
 										{ "include": "#variable" },
+										{ "include": "#parameter" },
 										{ "include": "#definition" }
 									]
 								}
@@ -375,6 +379,11 @@
 		"variable": {
 			"name": "variable.qsc",
 			"match": "{[^\\s]+}"
+		},
+
+		"parameter": {
+			"name": "parameter.qsc",
+			"match": "\\@[^\\s]+\\:"
 		},
 
 		"richtext": {
