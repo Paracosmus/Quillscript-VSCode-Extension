@@ -59,6 +59,18 @@
         "description": [ "Prevents this scene from proceeding.\n\n" ]
     },
 
+    "Sleep": {
+        "prefix": [ "$ Sleep" ],
+        "body": [ "$ Sleep" ],
+        "description": [ "Stops the script play, remove the script widgets from the screen, and apply Script Settings After.\n\n" ]
+    },
+
+    "Wakeup": {
+        "prefix": [ "$ Wakeup" ],
+        "body": [ "$ Wakeup" ],
+        "description": [ "Restore and continue a script play from a sleep state caused by the $Sleep command.\n\n" ]
+    },
+
     "Wait": {
         "prefix": [ "$ Wait" ],
         "body": [ "$ Wait ${1:0.2}" ],
