@@ -5,7 +5,7 @@
     "publisher": "BrunoCaxito",
     "displayName": "Quillscript Language",
     "description": "Syntax highlighting and support for Quillscript Language",
-    "version": "2.4.1",
+    "version": "2.4.2",
     "license": "MIT",
     "homepage": "https://quillscript.ink/",
 
@@ -29,10 +29,6 @@
 	},
 
     "main": "./out/extension.js",
-
-    "activationEvents": [
-        "onCommand:quillscript.check"
-    ],
 
     "contributes": {
         "languages": [{
