@@ -31,7 +31,8 @@
 					"patterns": [
 						{ "include": "#variable" },
 						{ "include": "#definition" },
-						{ "include": "#richtext" }
+						{ "include": "#richtext" },
+						{ "include": "#delay" }
 					]
 				}
 			}
@@ -49,7 +50,8 @@
 					"patterns": [
 						{ "include": "#variable" },
 						{ "include": "#definition" },
-						{ "include": "#richtext" }
+						{ "include": "#richtext" },
+						{ "include": "#delay" }
 					]
 				}
 			}
@@ -116,6 +118,7 @@
 						{ "include": "#variable" },
 						{ "include": "#definition" },
 						{ "include": "#richtext" },
+						{ "include": "#delay" },
 						{ "include": "#operator" },
 						{ "include": "#parentheses" },
 						{ "include": "#number" },
@@ -159,6 +162,7 @@
 										{ "include": "#variable" },
 										{ "include": "#definition" },
 										{ "include": "#richtext" },
+										{ "include": "#delay" },
 										{ "include": "#number" },
 										{ "include": "#keyword" },
 										{ "include": "#enum" }
@@ -206,7 +210,8 @@
 					"patterns": [
 						{ "include": "#definition" },
 						{ "include": "#variable" },
-						{ "include": "#richtext" }
+						{ "include": "#richtext" },
+						{ "include": "#delay" }
 					]
 				}
 			}
@@ -288,6 +293,7 @@
 										{ "include": "#parameter" },
 										{ "include": "#definition" },
 										{ "include": "#richtext" },
+										{ "include": "#delay" },
 										{ "include": "#operator" },
 										{ "include": "#parentheses" },
 										{ "include": "#number" },
@@ -337,6 +343,7 @@
 														{ "include": "#parameter" },
 														{ "include": "#definition" },
 														{ "include": "#richtext" },
+														{ "include": "#delay" },
 														{ "include": "#number" },
 														{ "include": "#keyword" },
 														{ "include": "#enum" }
@@ -376,6 +383,11 @@
 			"match": "\\[[^\\s]+\\]"
 		},
 
+		"delay": {
+			"name": "variable.delay.qsc",
+			"match": "\\(\\([^\\s]+\\)\\)"
+		},
+
 		"variable": {
 			"name": "variable.qsc",
 			"match": "{[^\\s]+}"
@@ -388,7 +400,43 @@
 
 		"richtext": {
 			"name": "entity.name.tag.qsc",
-			"match": "<(\\w*).*?>"
+			"begin": "<(\\w+)|</",
+			"beginCaptures": {
+				"1": { "name": "entity.name.tag.qsc" }
+			},
+			"end": ">",
+			"patterns": [
+				{
+					"name": "entity.other.attribute-name.qsc",
+					"match": "\\b(\\w+)\\b(?=\\=)"
+				},
+				{
+					"name": "punctuation.separator.key-value.qsc",
+					"match": "="
+				},
+				{
+					"name": "string.quoted.double.qsc",
+					"begin": "\"",
+					"end": "\"",
+					"patterns": [
+						{
+							"name": "constant.character.escape.qsc",
+							"match": "\\\\."
+						}
+					]
+				},
+				{
+					"name": "string.quoted.double.qsc",
+					"begin": "'",
+					"end": "'",
+					"patterns": [
+						{
+							"name": "constant.character.escape.qsc",
+							"match": "\\\\."
+						}
+					]
+				}
+			]
 		},
 
 		"operator": {
