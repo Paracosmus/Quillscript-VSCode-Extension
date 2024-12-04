@@ -167,7 +167,7 @@
 
     "Directive Checkpoint": {
         "prefix": [ "~ checkpoint" ],
-        "body": [ "~ checkpoint ${1}| ? ${2}" ],
+        "body": [ "~ checkpoint ${1:0.1} | ? ${2}" ],
         "description": [
             "Interrupts script execution until the condition is met.",
             "   (delay: string)     time between condition checks",
